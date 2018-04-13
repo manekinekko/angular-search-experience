@@ -29,6 +29,7 @@
               }
             ],
             "styles": [
+              "src/styles/custom-theme.scss",
               {
                 "input": "src/styles.css"
               }
