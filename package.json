@@ -1,6 +1,6 @@
 {
   "name": "angular-search-experience",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -13,23 +13,25 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^6.0.0-rc.1",
+    "@angular/cdk": "^6.0.0-rc.3",
     "@angular/common": "^6.0.0-rc.1",
     "@angular/compiler": "^6.0.0-rc.1",
     "@angular/core": "^6.0.0-rc.1",
     "@angular/forms": "^6.0.0-rc.1",
     "@angular/http": "^6.0.0-rc.1",
+    "@angular/material": "^6.0.0-rc.3",
     "@angular/platform-browser": "^6.0.0-rc.1",
     "@angular/platform-browser-dynamic": "^6.0.0-rc.1",
     "@angular/router": "^6.0.0-rc.1",
+    "@compodoc/compodoc": "^1.1.2",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0-rc.0",
     "zone.js": "^0.8.24"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^6.0.0-rc.1",
     "@angular-devkit/build-angular": "~0.5.0",
-    "typescript": "~2.7.2",
     "@angular/cli": "~6.0.0-rc.4",
+    "@angular/compiler-cli": "^6.0.0-rc.1",
     "@angular/language-service": "^6.0.0-rc.1",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
@@ -44,6 +46,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
-    "tslint": "~5.9.1"
+    "tslint": "~5.9.1",
+    "typescript": "~2.7.2"
   }
 }
