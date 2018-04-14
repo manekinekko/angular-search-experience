@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatGridListModule, MatToolbarModule, MatInputModule } from '@angular/material';
-
-
-export const MatModules = [
+import {
   MatGridListModule,
   MatToolbarModule,
-  MatInputModule
+  MatInputModule,
+  MatIconModule,
+  MatListModule,
+  MatButtonModule,
+  MatCardModule
+} from '@angular/material';
+
+export const MatModules = [
+  MatCardModule,
+  MatGridListModule,
+  MatListModule,
+  MatToolbarModule,
+  MatInputModule,
+  MatIconModule,
+  MatButtonModule
 ];
 
 @NgModule({
