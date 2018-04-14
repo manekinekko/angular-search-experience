@@ -4,6 +4,8 @@ const cookieParser = require('cookie-parser')();
 const cors = require('cors')({ origin: true });
 const app = express();
 
+const algoliaIndex = require('./algolia');
+
 const FAKE_TOKEN = 'this-is-a-fake-token';
 const BEARER = 'SearchToken';
 
@@ -24,7 +26,6 @@ const validateAuthorizedToken = (req, res, next) => {
     if (idToken === FAKE_TOKEN) {
       return next();
     }
-
   }
 
   res.status(403).send('Unauthorized');
@@ -35,10 +36,49 @@ app.use(cors);
 app.use(cookieParser);
 app.use(validateAuthorizedToken);
 app.post('/api/1/apps', (req, res) => {
-  res.send(`Added ${req.body}`);
+  console.log(`Adding: ${JSON.stringify(req.body)}`);
+
+  algoliaIndex
+    .addObject(req.body)
+    .then(record => {
+      console.log(`Added: ${JSON.stringify(req.body)}`);
+
+      res.send(record);
+    })
+    .catch(error => {
+      console.error(error);
+      
+      res.status(500).send({
+        error
+      });
+    });
 });
 app.delete('/api/1/apps/:id', (req, res) => {
-  res.send(`Deleting ${req.id}`);
+  const objectId = req.params.id;
+
+  console.log(`Deleting: ${objectId}`);
+
+  if (objectId) {
+    algoliaIndex
+      .deleteObject(objectId)
+      .then(record => {
+        console.log(`Deleted: ${objectId}`);
+
+        res.send(record);
+      })
+      .catch(error => {
+        console.error(error);
+
+        res.status(500).send({
+          error
+        });
+      });
+  } else {
+    res.status(500).send({
+      error: `Invalid ObjectID found in the URL. Got: "${objectId}"`
+    });
+    return;
+  }
 });
 
 exports.search = functions.https.onRequest(app);
