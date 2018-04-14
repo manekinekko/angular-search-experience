@@ -1,7 +1,7 @@
 import { SearchService, Application } from './../search.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { filter, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -16,6 +16,6 @@ export class SearchComponent implements OnInit {
   ngOnInit() {}
 
   onSearchInput(value: string) {
-    this.entries$ = this.search.fetchMocks(value);
+    this.entries$.pipe(switchMap(_ => this.search.fetchMocks(value)));
   }
 }
