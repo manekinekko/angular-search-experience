@@ -1,6 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { SearchService } from './search.service';
 import { SearchComponent } from './search/search.component';
@@ -14,7 +15,8 @@ import { SearchUiRoutingModule } from '@app/search-ui/search-ui-routing.module';
     CommonModule,
     MaterialModule,
     SearchUiRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   declarations: [SearchComponent, SearchInputComponent, SearchResultComponent],
   providers: [SearchService]
