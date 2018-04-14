@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  background: white;
+}
+img {
+  width: 60%;
+}
+
+.mat-nav-list .mat-list-item .mat-list-avatar {
+  border-radius: 0;
+}

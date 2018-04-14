@@ -1,3 +1,28 @@
-<p>
-  search-result works!
-</p>
+<!-- TODO: alternative view
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let entry of (entries$ | async)">
+    <a href="{{ entry.link }}">
+      <img [src]="entry.image" [alt]="entry.name">
+      <h6>{{ entry.name }}</h6>
+      <span>
+        stars {{rating}}
+      </span>
+      <span>
+          price {{price}}
+        </span>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list> -->
+
+<mat-nav-list>
+  <a mat-list-item target="__blank" href="{{entry.link}}" *ngFor="let entry of entries">
+    <!-- <mat-list-item *ngFor="let entry of entries"> -->
+    <img matListAvatar [src]="entry.image" [alt]="entry.name">
+    <h3 matLine>{{ entry.name }}</h3>
+    <p matLine>
+      <span> stars {{entry.rating}} </span>
+      <span> -- price {{entry.price}} </span>
+    </p>
+  </a>
+  <!-- </mat-list-item> -->
+</mat-nav-list>
