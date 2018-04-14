@@ -15,4 +15,8 @@ export class SearchResultComponent implements OnInit {
   ngOnInit() {
   }
 
+  entryName(entry: Application) {
+    return entry && entry.name;
+  }
+
 }

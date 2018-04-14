@@ -1,10 +1,14 @@
+:host {
+  display: block;
+}
+
 .card {
   padding: 0;
   margin: -100px auto 0;
   width: 90vw;
 }
 
-.header {
+.mat-card-header {
   display: flex;
   align-items: center;
   height: 100px;
@@ -19,8 +23,22 @@
 
 .content {
   min-height: 150px;
-  background-image: url('https://cdn.dribbble.com/users/37530/screenshots/2485318/no-results.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.content.no-result {
+  background-image: url('https://cdn.dribbble.com/users/37530/screenshots/2485318/no-results.png');
+}
+
+.algolia-credits {
+  padding: 16px 62px 16px 0;
+  margin: 0 20px 0;
+  text-align: right;
+  background-image: url('https://23276-presscdn-pagely.netdna-ssl.com/wp-content/uploads/2014/07/algolia-logo-light-300x250.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right center;
+  font-size: 0.9em;
 }

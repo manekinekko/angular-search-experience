@@ -1,7 +1,7 @@
 import { SearchService, Application } from './../search.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { filter, switchMap } from 'rxjs/operators';
+import { Observable, PartialObserver, Subject } from 'rxjs';
+import { filter, switchMap, share, switchMapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -9,13 +9,15 @@ import { filter, switchMap } from 'rxjs/operators';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  entries$: Observable<Application[]>;
+  applications: Application[];
 
-  constructor(private search: SearchService) {}
+  constructor(private search: SearchService) {
+    this.applications = [];
+  }
 
   ngOnInit() {}
 
-  onSearchInput(value: string) {
-    this.entries$.pipe(switchMap(_ => this.search.fetchMocks(value)));
+  onSearchInputChange(query: string) {
+    this.search.fetchMocks(query).subscribe(applications => (this.applications = applications));
   }
 }

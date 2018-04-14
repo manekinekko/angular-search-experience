@@ -9,14 +9,3 @@ img {
 .mat-nav-list .mat-list-item .mat-list-avatar {
   border-radius: 0;
 }
-
-.algolia-credits {
-  padding: 16px 62px 16px 0;
-  margin: 0 20px 0;
-  text-align: right;
-  background-image: url('https://23276-presscdn-pagely.netdna-ssl.com/wp-content/uploads/2014/07/algolia-logo-light-300x250.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 304px center;
-  font-size: 0.9em;
-}

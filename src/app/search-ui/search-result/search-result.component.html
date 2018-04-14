@@ -15,7 +15,7 @@
 </mat-grid-list> -->
 
 <mat-nav-list>
-  <a mat-list-item target="__blank" href="{{entry.link}}" *ngFor="let entry of entries">
+  <a mat-list-item target="__blank" href="{{entry.link}}" *ngFor="let entry of entries; trackBy: entryName(entry)">
     <img matListAvatar [src]="entry.image" [alt]="entry.name">
     <h3 matLine>{{ entry.name }}</h3>
     <p matLine>
@@ -24,4 +24,3 @@
     </p>
   </a>
 </mat-nav-list>
-<p class="algolia-credits">Powered by</p>
