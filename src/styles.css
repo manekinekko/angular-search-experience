@@ -1,7 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-html, body {
+html,
+body {
   margin: 0;
-  padding: 0;
+  padding: 0 0 20px 0;
+  font-family: 'roboto';
+  background-image: url('https://www.algolia.com/static_assets/images/svg/hero-product-background-fbf6afbc.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
+.gradient-background {
+  background: #3532a8;
+  background: linear-gradient(45deg, #8C52E1 0%,#F95583 100%);
 }
