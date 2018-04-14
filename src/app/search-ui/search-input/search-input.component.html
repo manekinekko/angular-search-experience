@@ -1,3 +1,6 @@
-<p>
-  search-input works!
-</p>
+<mat-form-field [formGroup]="search">
+  <input matInput type="text" placeholder="Search for popular apps..." formControlName="value"/>
+  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>

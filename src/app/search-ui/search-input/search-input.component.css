@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.mat-form-field {
+  min-width: 150px;
+  width: 100%;
+}
