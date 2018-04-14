@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
+import { Observable } from 'rxjs';
 
 export interface Application {
   category: string;
@@ -21,7 +22,7 @@ export interface Application {
 export class SearchService {
   constructor(private http: HttpClient) {}
 
-  fetchMocks(search: string) {
+  fetchMocks(search: string): Observable<Application[]> {
     return this.http.get(environment.mock.url).pipe(
       map((data: Application[]) => {
         return data.map(d => {
@@ -29,7 +30,8 @@ export class SearchService {
           return d;
         });
       }),
-      map(apps => apps.filter(app => search.length > 0 && new RegExp(`${search}`).test(app.name)))
+      map(apps => apps.filter(app => search.length > 0 && new RegExp(`${search}`, 'ig').test(app.name))),
+      map(apps => apps.slice(0, 100))
     );
   }
 }
