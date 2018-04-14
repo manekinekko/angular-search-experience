@@ -1,0 +1,26 @@
+.card {
+  padding: 0;
+  margin: -100px auto 0;
+  width: 90vw;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  box-sizing: border-box;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.subheading-2 {
+  width: 94%;
+}
+
+.content {
+  min-height: 150px;
+  background-image: url('https://cdn.dribbble.com/users/37530/screenshots/2485318/no-results.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

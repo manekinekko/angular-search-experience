@@ -1,4 +1,17 @@
-<app-search-input></app-search-input>
-<app-search-result></app-search-result>
+<mat-card class="card">
+  <mat-card-header class="header">
+    <div class="subheading-2">
+      <app-search-input (searchInput)="onSearchInput($event)"></app-search-input>
+    </div>
+    <div class="header-actions">
+      <button mat-icon-button>
+        <mat-icon>view_module</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <app-search-result *ngIf="(entries$ | async) as results" [entries]="results"></app-search-result>
+  </mat-card-content>
+</mat-card>
 
 <router-outlet></router-outlet>
