@@ -1,5 +1,5 @@
 <mat-form-field [formGroup]="searchGroup">
-  <input matInput type="text" placeholder="Search for popular apps..." formControlName="query"/>
+  <input #inputRef matInput type="text" placeholder="Search for popular apps..." formControlName="query" />
   <button mat-button *ngIf="!isEmptyInput()" matSuffix mat-icon-button aria-label="Clear" (click)="clearValue()">
     <mat-icon>close</mat-icon>
   </button>

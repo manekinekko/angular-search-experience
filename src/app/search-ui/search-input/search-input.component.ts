@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef, AfterContentInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { filter, distinctUntilChanged, debounceTime, tap, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
   templateUrl: './search-input.component.html',
   styleUrls: ['./search-input.component.css']
 })
-export class SearchInputComponent implements OnInit {
+export class SearchInputComponent implements OnInit, AfterContentInit {
+  @ViewChild('inputRef') inputRef: ElementRef;
   @Output() query: EventEmitter<string>;
   @Output() clear: EventEmitter<void>;
 
@@ -37,6 +38,10 @@ export class SearchInputComponent implements OnInit {
           this.query.emit(value);
         }
       });
+  }
+
+  ngAfterContentInit() {
+    this.inputRef.nativeElement.focus();
   }
 
   clearValue() {
