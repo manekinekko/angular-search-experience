@@ -17,6 +17,7 @@ export class SearchComponent implements OnInit {
   set applications(value: Application[]) {
     if (!value || value.length === 0) {
       // reset the component local state
+      this.searchCategories = [];
       this.isInfiniteScrollRequested = false;
       this.lastResultCount = Infinity;
     }
