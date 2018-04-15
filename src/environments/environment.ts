@@ -7,6 +7,11 @@ export const environment = {
   production: false,
   mock: {
     url: 'assets/data/data.json'
+  },
+  algolia: {
+    applicationId: 'UKIVLRH85G',
+    searchApiKey: '208b30b19b8def35abe4eba171bcb5a2',
+    indexName: 'dev_APPLICATION_2'
   }
 };
 
@@ -16,4 +21,4 @@ export const environment = {
  * import the following file, but please comment it out in production mode
  * because it will have performance impact when throw error
  */
-import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+import 'zone.js/dist/zone-error'; // Included with Angular CLI.
