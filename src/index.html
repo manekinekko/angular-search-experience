@@ -29,15 +29,26 @@
     }
 
     .main-header {
-      padding: 50px;
+      padding: 30px 50px;
       color: white;
       text-align: center;
-      height: 150px;
+      height: 218px;
     }
 
     .loader {
       display: block;
       margin: -100px auto;
+    }
+
+    .angular-logo {
+      background-image: url(https://angular.io/assets/images/logos/angular/angular_whiteTransparent.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      top: 9px;
+      position: relative;
     }
   </style>
 
@@ -45,7 +56,10 @@
 
 <body>
   <div class="gradient-background main-header">
-    <h1 class="mat-display-1">Instant AppSearch</h1>
+    <h1 class="mat-display-1">
+      <span class="angular-logo"></span>
+      Angular AppSearch
+    </h1>
   </div>
   <app-root>
     <img class="loader" src="assets/images/loader.svg" width="100" />
