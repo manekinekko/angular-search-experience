@@ -20,4 +20,5 @@ h6 {
   display: block;
   min-width: 100px;
   margin-right: -20px;
+  text-transform: uppercase;
 }
