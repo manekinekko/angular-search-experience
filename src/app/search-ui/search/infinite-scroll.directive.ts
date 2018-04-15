@@ -14,14 +14,14 @@ export class InfiniteScrollDirective implements AfterViewInit {
 
   private scrollEvent$;
   private userScrolledDown$;
+  threshold = 300;
 
   constructor(@Inject(DOCUMENT) private document) {
     this.scrollEvent$ = fromEvent(window, 'scroll');
     this.userScrolledDown$ = this.scrollEvent$.pipe(
       map(() => window.scrollY),
-      filter(current => current >= document.body.clientHeight - window.innerHeight),
       debounceTime(200),
-      filter(positions => this.isUserScrollingDown(positions))
+      filter((current: number) => current >= document.body.clientHeight - window.innerHeight - this.threshold)
     );
   }
 
@@ -30,11 +30,4 @@ export class InfiniteScrollDirective implements AfterViewInit {
       this.scroll.emit();
     });
   }
-
-  private isUserScrollingDown = positions => {
-    if (window.innerHeight + Math.ceil(window.pageYOffset) >= this.document.body.offsetHeight) {
-      return true;
-    }
-    return false;
-  };
 }
