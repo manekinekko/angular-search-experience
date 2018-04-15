@@ -12,6 +12,7 @@ import { SearchUiRoutingModule } from '@app/search-ui/search-ui-routing.module';
 import { RatingDirective } from './search-result/rating.directive';
 import { RemoveCurrencySymbolPipe } from './search-result/pipes/remove-currency-symbol.pipe';
 import { FreePriceLabelPipe } from './search-result/pipes/free-price-label.pipe';
+import { InfiniteScrollDirective } from './search/infinite-scroll.directive';
 
 @NgModule({
   imports: [CommonModule, CoreModule, SearchUiRoutingModule, RouterModule, ReactiveFormsModule],
@@ -21,7 +22,8 @@ import { FreePriceLabelPipe } from './search-result/pipes/free-price-label.pipe'
     SearchResultComponent,
     RatingDirective,
     RemoveCurrencySymbolPipe,
-    FreePriceLabelPipe
+    FreePriceLabelPipe,
+    InfiniteScrollDirective
   ],
   providers: [SearchService]
 })
