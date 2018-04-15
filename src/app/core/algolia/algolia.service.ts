@@ -21,40 +21,44 @@ export class AlgoliaService {
     const client = window['algoliasearch'](applicationID, searchApiKey);
     this.helper = algoliasearchHelper(client, indexName);
 
-    // handle search event
+    // handle search events
     this.searchState$ = new Observable(observer => {
-      const handler = e => observer.next(e);
-      this.helper.on('search', handler);
+      this.helper.on('search', e => observer.next(e));
       return () => {};
     });
 
-    // handle result event
+    // handle result events
     this.resultState$ = new Observable(observer => {
-      const handler = e => observer.next(e);
-      this.helper.on('result', handler);
+      this.helper.on('result', e => observer.next(e));
       return () => {};
     });
 
-    // handle change event
+    // handle change events
     this.changeState$ = new Observable(observer => {
-      const handler = e => observer.next(e);
-      this.helper.on('change', handler);
+      this.helper.on('change', e => observer.next(e));
       return () => {};
     });
 
-    // handle error event
+    // handle error events
     this.errorState$ = new Observable(observer => {
-      const handler = e => observer.next(e);
-      this.helper.on('error', handler);
+      this.helper.on('error', e => observer.next(e));
       return () => {};
     });
   }
 
-  searh(query: string) {
+  configure(options) {
+    this.helper.setQueryParameter(options);
+  }
+
+  search(query: string) {
     if (query) {
       this.helper.setQuery(query).search();
-    } else {
-      this.helper.clearCache();
+    }
+  }
+
+  nextPage() {
+    if (this.helper.state.query !== '') {
+      this.helper.nextPage().search();
     }
   }
 }

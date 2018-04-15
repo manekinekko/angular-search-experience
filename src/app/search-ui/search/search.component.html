@@ -1,19 +1,18 @@
-<mat-card class="card">
+<mat-card class="card" appInfiniteScroll (scroll)="onScroll()">
   <mat-card-header class="header">
     <div class="subheading-2">
       <app-search-input (clear)="onSearchInputClear()" (query)="onSearchInputChange($event)"></app-search-input>
     </div>
     <div class="header-actions">
-      <button mat-icon-button>
-        <mat-icon>view_module</mat-icon>
-      </button>
     </div>
   </mat-card-header>
   <mat-card-content class="content" [class.no-result]="applications.length === 0">
     <a class="algolia-credits" href="https://www.algolia.com/product" target="__blank">
       <p>Powered by</p>
     </a>
+
     <app-search-result *ngIf="applications.length > 0" [entries]="applications"></app-search-result>
+
   </mat-card-content>
 </mat-card>
 

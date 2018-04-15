@@ -7,16 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent implements OnInit {
-
   @Input() entries: Application[];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   entryName(entry: Application) {
     return entry && entry.name;
   }
-
 }
