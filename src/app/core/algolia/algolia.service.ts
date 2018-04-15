@@ -23,26 +23,38 @@ export class AlgoliaService {
 
     // handle search events
     this.searchState$ = new Observable(observer => {
-      this.helper.on('search', e => observer.next(e));
-      return () => {};
+      const handler = e => observer.next(e);
+      this.helper.on('search', handler);
+      return () => {
+        this.helper.removeListener('search', handler);
+      };
     });
 
     // handle result events
     this.resultState$ = new Observable(observer => {
-      this.helper.on('result', e => observer.next(e));
-      return () => {};
+      const handler = e => observer.next(e);
+      this.helper.on('result', handler);
+      return () => {
+        this.helper.removeListener('result', handler);
+      };
     });
 
     // handle change events
     this.changeState$ = new Observable(observer => {
-      this.helper.on('change', e => observer.next(e));
-      return () => {};
+      const handler = e => observer.next(e);
+      this.helper.on('change', handler);
+      return () => {
+        this.helper.removeListener('change', handler);
+      };
     });
 
     // handle error events
     this.errorState$ = new Observable(observer => {
-      this.helper.on('error', e => observer.next(e));
-      return () => {};
+      const handler = e => observer.next(e);
+      this.helper.on('error', handler);
+      return () => {
+        this.helper.removeListener('error', handler);
+      };
     });
   }
 
