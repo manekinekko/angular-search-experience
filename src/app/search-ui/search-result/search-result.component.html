@@ -17,7 +17,7 @@
 <mat-nav-list>
   <a mat-list-item target="__blank" href="{{entry.link}}" *ngFor="let entry of entries; trackBy: entryName">
     <img matListAvatar [src]="entry.image" [alt]="entry.name">
-    <h3 matLine>{{ entry.name }}</h3>
+    <h3 matLine [innerHTML]="entry._highlightResult.name.value"></h3>
     <h6 matLine>{{ entry.category }}</h6>
     <p matLine>
       <span appRating [rating]="entry.rating"></span>

@@ -13,7 +13,8 @@ export interface Application {
   image: string;
   link: string;
   ratingCount: number;
-  price: string;
+  price: number;
+  _highlightResult?: {};
 }
 
 @Injectable({

@@ -4,3 +4,11 @@
 span[appRating] i.material-icons {
   font-size: 18px;
 }
+
+em {
+  background-color: #f95583;
+  padding: 1px 1px;
+  border-radius: 5px;
+  color: white;
+  font-style: normal;
+}
