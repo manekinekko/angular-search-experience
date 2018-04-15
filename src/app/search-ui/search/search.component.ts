@@ -26,7 +26,6 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.search.resultState$.subscribe(content => {
       this.lastResultCount = content.hits.length;
-      console.log(this.lastResultCount);
 
       if (this.isInfiniteScrollRequested) {
         this.applications = this.applications.concat(content.hits);

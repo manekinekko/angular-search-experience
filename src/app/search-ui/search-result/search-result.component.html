@@ -15,7 +15,7 @@
 </mat-grid-list> -->
 
 <mat-nav-list>
-  <a mat-list-item target="__blank" href="{{entry.link}}" *ngFor="let entry of entries; trackBy: entryName(entry)">
+  <a mat-list-item target="__blank" href="{{entry.link}}" *ngFor="let entry of entries; trackBy: entryName">
     <img matListAvatar [src]="entry.image" [alt]="entry.name">
     <h3 matLine>{{ entry.name }}</h3>
     <h6 matLine>{{ entry.category }}</h6>
