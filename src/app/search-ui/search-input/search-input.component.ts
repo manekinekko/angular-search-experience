@@ -9,12 +9,14 @@ import { Observable } from 'rxjs';
   styleUrls: ['./search-input.component.css']
 })
 export class SearchInputComponent implements OnInit {
-  @Output() change: EventEmitter<string>;
+  @Output() query: EventEmitter<string>;
+  @Output() clear: EventEmitter<void>;
 
   searchGroup: FormGroup;
 
   constructor() {
-    this.change = new EventEmitter();
+    this.query = new EventEmitter();
+    this.clear = new EventEmitter();
     this.searchGroup = new FormGroup({
       query: new FormControl('')
     });
@@ -25,16 +27,22 @@ export class SearchInputComponent implements OnInit {
       .pipe(
         // prettier-ignore
         map(event => event.query),
-        debounceTime(100),
+        // debounceTime(100),
         distinctUntilChanged()
       )
       .subscribe(value => {
-        this.change.emit(value);
+        if (value.length === 0) {
+          this.clear.emit();
+        } else {
+          this.query.emit(value);
+        }
       });
   }
 
-  clear() {
+  clearValue() {
     (this.searchGroup.controls.query as FormControl).setValue('');
+
+    this.clear.emit();
   }
 
   isEmptyInput() {

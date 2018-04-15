@@ -7,13 +7,13 @@ import { SearchService } from './search.service';
 import { SearchComponent } from './search/search.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { SearchResultComponent } from './search-result/search-result.component';
-import { MaterialModule } from '@app/core/material.module';
+import { CoreModule } from '@app/core/core.module';
 import { SearchUiRoutingModule } from '@app/search-ui/search-ui-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
+    CoreModule,
     SearchUiRoutingModule,
     RouterModule,
     ReactiveFormsModule

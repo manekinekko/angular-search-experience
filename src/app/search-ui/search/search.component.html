@@ -1,7 +1,7 @@
 <mat-card class="card">
   <mat-card-header class="header">
     <div class="subheading-2">
-      <app-search-input (change)="onSearchInputChange($event)"></app-search-input>
+      <app-search-input (clear)="onSearchInputClear()" (query)="onSearchInputChange($event)"></app-search-input>
     </div>
     <div class="header-actions">
       <button mat-icon-button>

@@ -26,7 +26,7 @@ export class SearchService {
     return this.http.get(environment.mock.url).pipe(
       map((data: Application[]) => {
         return data.map(d => {
-          d.image = 'https://ng2training.com/wp-content/uploads/2015/12/angular.png';
+          d.image = 'https://angular.io/assets/images/logos/angular/angular.svg';
           return d;
         });
       }),
