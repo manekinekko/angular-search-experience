@@ -44,8 +44,6 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     const handleResultSubscription = content => {
-      console.log('results...');
-
       const categoriesFacet = content.getFacetValues('category') as any[];
       if (categoriesFacet.length > 1) {
         this.searchCategories = categoriesFacet;

@@ -58,15 +58,10 @@ export class AlgoliaService {
 
   private search(indexName: string, query: string) {
     if (query.trim() !== '') {
-      console.log(this.indices.applications.getIndex());
       this.indices.applications
         .setIndex(indexName)
         .setQuery(query)
-        .search(error => {
-          console.log(error.message);
-          console.log(error.debugData);
-          return;
-        });
+        .search();
     }
   }
 
@@ -76,8 +71,6 @@ export class AlgoliaService {
 
   nextPage() {
     if (this.indices.applications.state.query !== '') {
-      console.log(this.indices.applications.getIndex());
-
       this.indices.applications.nextPage().search();
     }
   }
