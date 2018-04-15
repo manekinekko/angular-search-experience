@@ -4,8 +4,23 @@
       <p>Powered by</p>
     </a>
     <app-search-input class="search-input" (clear)="onSearchInputClear()" (query)="onSearchInputChange($event)"></app-search-input>
+
   </mat-card-header>
   <mat-card-content class="content" [class.no-result]="applications.length === 0">
+
+    <div class="sorting-options">
+      <mat-button-toggle-group (change)="onSortOptionChange($event)" #group="matButtonToggleGroup" *ngIf="applications.length > 0">
+        <mat-button-toggle [checked]="sortOption" value="applications">
+          Most Relevant
+        </mat-button-toggle>
+        <mat-button-toggle [checked]="sortOption" value="price_asc">
+          Lowest Price
+        </mat-button-toggle>
+        <mat-button-toggle [checked]="sortOption" value="rating_desc">
+          Most Popular
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
 
     <mat-expansion-panel *ngIf="searchCategories.length > 0">
       <mat-expansion-panel-header>

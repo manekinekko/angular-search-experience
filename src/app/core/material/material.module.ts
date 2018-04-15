@@ -10,7 +10,8 @@ import {
   MatCardModule,
   MatChipsModule,
   MatSnackBarModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatButtonToggleModule
 } from '@angular/material';
 
 export const MatModules = [
@@ -23,7 +24,8 @@ export const MatModules = [
   MatButtonModule,
   MatChipsModule,
   MatSnackBarModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatButtonToggleModule
 ];
 
 @NgModule({

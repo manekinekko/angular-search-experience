@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, PartialObserver, Subject } from 'rxjs';
 import { filter, switchMap, share, switchMapTo } from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatButtonToggleChange } from '@angular/material';
 import { AlgoliaService } from '@app/core/algolia/algolia.service';
 import { Category } from '../facets/category/category.component';
 import { SearchService, Application } from './../search.service';
@@ -13,6 +13,7 @@ import { SearchService, Application } from './../search.service';
 })
 export class SearchComponent implements OnInit {
   hitsPerPage = 20;
+  sortOption = 'rating_desc';
   private _applications: Application[];
   set applications(value: Application[]) {
     if (!value || value.length === 0) {
@@ -42,7 +43,9 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.search.resultState$.subscribe(content => {
+    const handleResultSubscription = content => {
+      console.log('results...');
+
       const categoriesFacet = content.getFacetValues('category') as any[];
       if (categoriesFacet.length > 1) {
         this.searchCategories = categoriesFacet;
@@ -57,20 +60,23 @@ export class SearchComponent implements OnInit {
       }
 
       this.isInfiniteScrollRequested = false;
-    });
-    this.search.errorState$.subscribe(content => {
+    };
+
+    this.search.searchState.result$.subscribe(handleResultSubscription);
+
+    this.search.searchState.error$.subscribe(content => {
       this.applications = [];
     });
-    this.search.searchState$.subscribe(content => {
+    this.search.searchState.search$.subscribe(content => {
       if (this.isInfiniteScrollRequested) {
         this.openSnackBar();
       }
     });
-    this.search.changeState$.subscribe(content => {});
+    this.search.searchState.change$.subscribe(content => {});
   }
 
   onSearchInputChange(query: string) {
-    this.search.search(query);
+    this.search.sortByRatingDesc(query);
   }
 
   filterByCategory(category: Category) {
@@ -95,5 +101,19 @@ export class SearchComponent implements OnInit {
     this.snackBar.open('Loading more content...', '', {
       duration: 500
     });
+  }
+
+  onSortOptionChange(changeEvent: MatButtonToggleChange) {
+    switch (changeEvent.value) {
+      case 'applications':
+        this.search.sortByRelevance();
+        break;
+      case 'rating_desc':
+        this.search.sortByRatingDesc();
+        break;
+      case 'price_asc':
+        this.search.sortByPriceAsc();
+        break;
+    }
   }
 }
