@@ -9,8 +9,10 @@
       </button>
     </div>
   </mat-card-header>
-  <mat-card-content class="content" [class.no-result]="applications.length === 0" >
-    <p class="algolia-credits">Powered by</p>
+  <mat-card-content class="content" [class.no-result]="applications.length === 0">
+    <a class="algolia-credits" href="https://www.algolia.com/product" target="__blank">
+      <p>Powered by</p>
+    </a>
     <app-search-result *ngIf="applications.length > 0" [entries]="applications"></app-search-result>
   </mat-card-content>
 </mat-card>

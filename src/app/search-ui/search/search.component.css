@@ -33,7 +33,11 @@
 }
 
 .algolia-credits {
-  padding: 16px 62px 16px 0;
+  display: block;
+  text-decoration: none;
+  color: gray;
+  font-size: 13px;
+  padding: 5px 67px;
   margin: 0 20px 0;
   text-align: right;
   background-image: url('https://23276-presscdn-pagely.netdna-ssl.com/wp-content/uploads/2014/07/algolia-logo-light-300x250.png');
