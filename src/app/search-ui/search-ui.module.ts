@@ -9,16 +9,11 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { CoreModule } from '@app/core/core.module';
 import { SearchUiRoutingModule } from '@app/search-ui/search-ui-routing.module';
+import { RatingDirective } from './search-result/rating.directive';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    CoreModule,
-    SearchUiRoutingModule,
-    RouterModule,
-    ReactiveFormsModule
-  ],
-  declarations: [SearchComponent, SearchInputComponent, SearchResultComponent],
+  imports: [CommonModule, CoreModule, SearchUiRoutingModule, RouterModule, ReactiveFormsModule],
+  declarations: [SearchComponent, SearchInputComponent, SearchResultComponent, RatingDirective],
   providers: [SearchService]
 })
-export class SearchUiModule { }
+export class SearchUiModule {}

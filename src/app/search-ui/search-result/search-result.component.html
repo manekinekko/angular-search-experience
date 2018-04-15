@@ -19,7 +19,7 @@
     <img matListAvatar [src]="entry.image" [alt]="entry.name">
     <h3 matLine>{{ entry.name }}</h3>
     <p matLine>
-      <span> stars {{entry.rating}} </span>
+      <span appRating [rating]="entry.rating"></span>
       <span> -- price {{entry.price}} </span>
     </p>
   </a>
