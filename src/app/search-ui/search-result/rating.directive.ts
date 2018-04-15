@@ -24,6 +24,6 @@ export class RatingDirective implements OnInit {
     ].join('');
 
     this.renderer.setProperty(this.host.nativeElement, 'innerHTML', fragment);
-    this.renderer.setStyle(this.host.nativeElement, 'color', '#F95583');
+    this.renderer.setStyle(this.host.nativeElement, 'color', '#FBBF75');
   }
 }

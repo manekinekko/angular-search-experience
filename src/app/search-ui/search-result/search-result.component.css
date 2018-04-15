@@ -6,6 +6,18 @@ img {
   width: 60%;
 }
 
+h6 {
+  color: lightgray;
+}
+
 .mat-nav-list .mat-list-item .mat-list-avatar {
   border-radius: 0;
+  width: 60px;
+  height: 60px;
+}
+
+.application-price {
+  display: block;
+  min-width: 100px;
+  margin-right: -20px;
 }

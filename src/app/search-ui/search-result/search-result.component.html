@@ -18,9 +18,12 @@
   <a mat-list-item target="__blank" href="{{entry.link}}" *ngFor="let entry of entries; trackBy: entryName(entry)">
     <img matListAvatar [src]="entry.image" [alt]="entry.name">
     <h3 matLine>{{ entry.name }}</h3>
+    <h6 matLine>{{ entry.category }}</h6>
     <p matLine>
       <span appRating [rating]="entry.rating"></span>
-      <span> -- price {{entry.price}} </span>
     </p>
+    <mat-chip-list class="application-price">
+      <mat-chip aria-orientation="horizonta" [selected]="entry.price !== '0 USD'">{{entry.price}}</mat-chip>
+    </mat-chip-list>
   </a>
 </mat-nav-list>
