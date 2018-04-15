@@ -32,7 +32,12 @@
       padding: 50px;
       color: white;
       text-align: center;
-      height: 130px;
+      height: 150px;
+    }
+
+    .loader {
+      display: block;
+      margin: -100px auto;
     }
   </style>
 
@@ -42,7 +47,9 @@
   <div class="gradient-background main-header">
     <h1 class="mat-display-1">Instant AppSearch</h1>
   </div>
-  <app-root></app-root>
+  <app-root>
+    <img class="loader" src="assets/images/loader.svg" width="100" />
+  </app-root>
 </body>
 
 </html>
