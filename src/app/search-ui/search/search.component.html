@@ -1,15 +1,22 @@
 <mat-card class="card" appInfiniteScroll (scroll)="onScroll()">
-  <mat-card-header class="header">
-    <div class="subheading-2">
-      <app-search-input (clear)="onSearchInputClear()" (query)="onSearchInputChange($event)"></app-search-input>
-    </div>
-    <div class="header-actions">
-    </div>
-  </mat-card-header>
-  <mat-card-content class="content" [class.no-result]="applications.length === 0">
-    <a class="algolia-credits" href="https://www.algolia.com/product" target="__blank">
+  <mat-card-header>
+    <a class="algolia-credits" href="https://www.algolia.com/product" target="__blank" aria-label="Powered by Algolia">
       <p>Powered by</p>
     </a>
+    <app-search-input class="search-input" (clear)="onSearchInputClear()" (query)="onSearchInputChange($event)"></app-search-input>
+  </mat-card-header>
+  <mat-card-content class="content" [class.no-result]="applications.length === 0">
+
+    <mat-expansion-panel *ngIf="searchCategories.length > 0">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filters & Facets
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <app-category (selectionChanged)="filterByCategory($event)" [categories]="searchCategories"></app-category>
+
+    </mat-expansion-panel>
 
     <app-search-result *ngIf="applications.length > 0" [entries]="applications"></app-search-result>
 

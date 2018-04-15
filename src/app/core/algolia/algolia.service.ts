@@ -19,7 +19,9 @@ export class AlgoliaService {
     @Inject(ALGOLIA_INDEX) private indexName
   ) {
     const client = window['algoliasearch'](applicationID, searchApiKey);
-    this.helper = algoliasearchHelper(client, indexName);
+    this.helper = algoliasearchHelper(client, indexName, {
+      disjunctiveFacets: ['category']
+    });
 
     // handle search events
     this.searchState$ = new Observable(observer => {
@@ -66,6 +68,10 @@ export class AlgoliaService {
     if (query) {
       this.helper.setQuery(query).search();
     }
+  }
+
+  toggleFacetRefinement(facet: any = {}) {
+    this.helper = this.helper.toggleFacetRefinement(facet.name, facet.query).search();
   }
 
   nextPage() {

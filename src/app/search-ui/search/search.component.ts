@@ -1,9 +1,10 @@
-import { SearchService, Application } from './../search.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable, PartialObserver, Subject } from 'rxjs';
 import { filter, switchMap, share, switchMapTo } from 'rxjs/operators';
-import { AlgoliaService } from '@app/core/algolia/algolia.service';
 import { MatSnackBar } from '@angular/material';
+import { AlgoliaService } from '@app/core/algolia/algolia.service';
+import { Category } from '../facets/category/category.component';
+import { SearchService, Application } from './../search.service';
 
 @Component({
   selector: 'app-search',
@@ -12,12 +13,28 @@ import { MatSnackBar } from '@angular/material';
 })
 export class SearchComponent implements OnInit {
   hitsPerPage = 20;
-  applications: Application[];
+  private _applications: Application[];
+  set applications(value: Application[]) {
+    if (!value || value.length === 0) {
+      // reset the component local state
+      this.isInfiniteScrollRequested = false;
+      this.lastResultCount = Infinity;
+    }
+
+    this._applications = value;
+  }
+
+  get applications() {
+    return this._applications;
+  }
+
+  searchCategories: Category[];
   isInfiniteScrollRequested: boolean;
   lastResultCount = Infinity;
 
   constructor(private search: AlgoliaService, public snackBar: MatSnackBar) {
     this.applications = [];
+    this.searchCategories = [];
     this.search.configure({
       hitsPerPage: this.hitsPerPage
     });
@@ -25,6 +42,11 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.search.resultState$.subscribe(content => {
+      const categoriesFacet = content.getFacetValues('category') as any[];
+      if (categoriesFacet.length > 1) {
+        this.searchCategories = categoriesFacet;
+      }
+
       this.lastResultCount = content.hits.length;
 
       if (this.isInfiniteScrollRequested) {
@@ -48,6 +70,13 @@ export class SearchComponent implements OnInit {
 
   onSearchInputChange(query: string) {
     this.search.search(query);
+  }
+
+  filterByCategory(category: Category) {
+    this.search.toggleFacetRefinement({
+      name: 'category',
+      query: category.name
+    });
   }
 
   onSearchInputClear() {

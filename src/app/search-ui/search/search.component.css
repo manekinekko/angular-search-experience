@@ -6,6 +6,7 @@
   padding: 0;
   margin: -100px auto 0;
   width: 90vw;
+  position: relative;
 }
 
 .mat-card-header {
@@ -17,7 +18,7 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.subheading-2 {
+.search-input {
   width: 94%;
 }
 
@@ -36,13 +37,15 @@
   display: block;
   text-decoration: none;
   color: gray;
-  font-size: 13px;
-  padding: 5px 67px;
-  margin: 0 20px 0;
+  padding: 4px 60px;
+  margin: 0 8px 0;
   text-align: right;
-  background-image: url('https://23276-presscdn-pagely.netdna-ssl.com/wp-content/uploads/2014/07/algolia-logo-light-300x250.png');
+  background-image: url(https://23276-presscdn-pagely.netdna-ssl.com/wp-content/uploads/2014/07/algolia-logo-light-300x250.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right center;
-  font-size: 0.9em;
+  font-size: 0.7em;
+  position: absolute;
+  margin-top: 30px;
+  right: 0;
 }
