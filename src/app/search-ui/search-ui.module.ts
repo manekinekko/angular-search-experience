@@ -10,7 +10,6 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchUiRoutingModule } from './search-ui-routing.module';
 import { RatingDirective } from './search-result/rating.directive';
-import { RemoveCurrencySymbolPipe } from './search-result/pipes/remove-currency-symbol.pipe';
 import { FreePriceLabelPipe } from './search-result/pipes/free-price-label.pipe';
 import { InfiniteScrollDirective } from './search/infinite-scroll.directive';
 import { FacetsModule } from './facets/facets.module';
@@ -22,7 +21,6 @@ import { FacetsModule } from './facets/facets.module';
     SearchInputComponent,
     SearchResultComponent,
     RatingDirective,
-    RemoveCurrencySymbolPipe,
     FreePriceLabelPipe,
     InfiniteScrollDirective
   ],

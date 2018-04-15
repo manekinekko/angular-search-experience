@@ -23,7 +23,7 @@
       <span appRating [rating]="entry.rating"></span>
     </p>
     <mat-chip-list class="application-price">
-      <mat-chip aria-orientation="horizonta" [selected]="entry.price !== '0 USD'">{{entry.price | removeCurrencySymbol:'USD' | currency:'$' | freePriceLabel:'$':'free' }}</mat-chip>
+      <mat-chip aria-orientation="horizonta" [selected]="entry.price !== 0">{{entry.price | currency:'$' | freePriceLabel:'$':'free' }}</mat-chip>
     </mat-chip-list>
   </a>
 </mat-nav-list>
