@@ -1,14 +1,14 @@
 <mat-card class="card" appInfiniteScroll (scroll)="onScroll()">
   <mat-card-header>
-    <a class="algolia-credits" href="https://www.algolia.com/product" target="__blank" aria-label="Powered by Algolia">
+    <a class="card_algolia-credits" href="https://www.algolia.com/product" target="__blank" aria-label="Powered by Algolia">
       <p>Powered by</p>
     </a>
-    <app-search-input class="search-input" (clear)="onSearchInputClear()" (query)="onSearchInputChange($event)"></app-search-input>
+    <app-search-input class="card_search-input" (clear)="onSearchInputClear()" (query)="onSearchInputChange($event)"></app-search-input>
 
   </mat-card-header>
-  <mat-card-content class="content" [class.no-result]="applications.length === 0">
+  <mat-card-content class="card_content" [class.no-result]="applications.length === 0">
 
-    <div class="sorting-options">
+    <div class="card_sorting-options">
       <mat-button-toggle-group (change)="onSortOptionChange($event)" #group="matButtonToggleGroup" *ngIf="applications.length > 0">
         <mat-button-toggle [checked]="sortOption" value="relevance_desc">
           Most Relevant

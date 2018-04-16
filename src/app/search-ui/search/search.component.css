@@ -2,13 +2,6 @@
   display: block;
 }
 
-.card {
-  padding: 0;
-  margin: -130px auto 0;
-  width: 90vw;
-  position: relative;
-}
-
 .mat-card-header {
   display: flex;
   align-items: center;
@@ -18,11 +11,18 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.search-input {
+.card {
+  padding: 0;
+  margin: -130px auto 0;
+  width: 90vw;
+  position: relative;
+}
+
+.card_search-input {
   width: 100%;
 }
 
-.content {
+.card_content {
   min-height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@
   background-image: url('https://cdn.dribbble.com/users/37530/screenshots/2485318/no-results.png');
 }
 
-.algolia-credits {
+.card_algolia-credits {
   display: block;
   text-decoration: none;
   color: gray;
@@ -50,7 +50,7 @@
   right: 0;
 }
 
-.sorting-options {
+.card_sorting-options {
   text-align: right;
   padding: 10px;
 }

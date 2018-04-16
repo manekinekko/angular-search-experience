@@ -23,7 +23,7 @@
       min-height: 100%;
     }
 
-    .gradient-background {
+    .main-header--gradient-background {
       background: #3532a8;
       background: linear-gradient(45deg, #8C52E1 0%, #F95583 100%);
     }
@@ -35,12 +35,7 @@
       height: 218px;
     }
 
-    .loader {
-      display: block;
-      margin: -100px auto;
-    }
-
-    .angular-logo {
+    .main-header_angular-logo {
       background-image: url(https://angular.io/assets/images/logos/angular/angular_whiteTransparent.svg);
       background-size: cover;
       background-repeat: no-repeat;
@@ -50,14 +45,19 @@
       top: 9px;
       position: relative;
     }
+
+    .loader {
+      display: block;
+      margin: -100px auto;
+    }
   </style>
 
 </head>
 
 <body>
-  <div class="gradient-background main-header">
+  <div class="main-header main-header--gradient-background">
     <h1 class="mat-display-1">
-      <span class="angular-logo"></span>
+      <span class="main-header_angular-logo"></span>
       Angular AppSearch
     </h1>
   </div>

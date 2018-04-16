@@ -2,11 +2,11 @@
   display: block;
   background: white;
 }
-img {
+.mat-nav-list_application-logo {
   width: 60%;
 }
 
-h6 {
+.mat-nav-list_application-category {
   color: lightgray;
 }
 
@@ -16,7 +16,7 @@ h6 {
   height: 60px;
 }
 
-.application-price {
+.mat-nav-list_application-price {
   display: block;
   min-width: 100px;
   margin-right: -20px;
