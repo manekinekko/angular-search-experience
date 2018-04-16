@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Observable, PartialObserver, Subject } from 'rxjs';
 import { filter, switchMap, share, switchMapTo } from 'rxjs/operators';
 import { MatSnackBar, MatButtonToggleChange } from '@angular/material';
@@ -34,7 +34,7 @@ export class SearchComponent implements OnInit {
   isInfiniteScrollRequested: boolean;
   lastResultCount = Infinity;
 
-  constructor(private search: AlgoliaService, public snackBar: MatSnackBar) {
+  constructor(private search: AlgoliaService, private snackBar: MatSnackBar) {
     this.applications = [];
     this.searchCategories = [];
     this.search.configure({
@@ -103,15 +103,15 @@ export class SearchComponent implements OnInit {
 
   onSortOptionChange(changeEvent: MatButtonToggleChange) {
     switch (changeEvent.value) {
-      case 'applications':
-        this.search.sortByRelevance();
-        break;
       case 'rating_desc':
         this.search.sortByRatingDesc();
         break;
       case 'price_asc':
         this.search.sortByPriceAsc();
         break;
+      case 'relevance_desc':
+      default:
+        this.search.sortByRelevance();
     }
   }
 }

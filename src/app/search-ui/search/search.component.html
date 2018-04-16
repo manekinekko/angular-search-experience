@@ -10,7 +10,7 @@
 
     <div class="sorting-options">
       <mat-button-toggle-group (change)="onSortOptionChange($event)" #group="matButtonToggleGroup" *ngIf="applications.length > 0">
-        <mat-button-toggle [checked]="sortOption" value="applications">
+        <mat-button-toggle [checked]="sortOption" value="relevance_desc">
           Most Relevant
         </mat-button-toggle>
         <mat-button-toggle [checked]="sortOption" value="price_asc">
