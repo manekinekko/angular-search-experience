@@ -1,6 +1,10 @@
 # Angular Search Experience
 
-This application is LIVE and available at this URL: https://angular-search-experience.firebaseapp.com/#/search
+This application is LIVE and available at this URL: https://angular-search-experience.firebaseapp.com/
+
+<p>
+  <img src="https://raw.githubusercontent.com/manekinekko/angular-search-experience/master/docs/screenshots/angular-search-experience.gif?token=ABnuHZopjJNCB6uGO8v2GUF5cy6uwcynks5a3mOOwA%3D%3D"/>
+</p>
 
 # Setting up the project
 
