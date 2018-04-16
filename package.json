@@ -12,7 +12,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "predeploy": "npm run build:prod",
-    "deploy": "firebase deploy --only hosting"
+    "deploy": "firebase deploy --only hosting",
+    "doc": "compodoc -p tsconfig.json"
   },
   "private": true,
   "dependencies": {
