@@ -11,12 +11,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Cloning the source files
 
-In order to download (clone) this project on your machine, you need to have `git` installed. Read more on [how to install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your machine.
+In order to download (clone) this project on your machine, you need to have `git` installed. Read more on [how to install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your system.
 
-Once installed, open up a terminal and clone this repository using the following command:
+Once installed, open up a terminal shell and clone this repository using the following command:
 
 ```
 > git clone https://github.com/manekinekko/angular-search-experience.git
+> cd angular-search-experience
 ```
 
 ## Installing the dependencies
@@ -32,12 +33,21 @@ You will need `yarn` to install this project's dependencies. If you don't have `
 
 The backed is relying on a Serverless architecture implemented Cloud Functions for Firebase. This project comes with `firebase-tools` as a local dependency. Please note that this dependency is usually installed globally.
 
-To run (ie. emulate) the `search` Cloud Function locally, simply run `yarn start:backend`. This command will trigger two actions:
+Also, the Firebase runtine is using an older version of Node.js: `v6.11.5`. We've included a `.nvmrc` folder under `/functions`. This special file is used by `NVM` allowing you to easily switch between diffent versions of Node.js on your machine. If you don't have `NVM` installed, here is [the installation guide](https://github.com/creationix/nvm#installation).
 
-1.  change directory to the `functions` folder (at the root of the project). This folder contains all the backend code.
+Use `NVM` to install the required Node.js version and then use it (inside the `/functions` folder):
+
+```
+> nvm install 6.11.5
+> nvm use
+```
+
+Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the `search` Cloud Function locally. For that, run `yarn start:backend`. This command will do two things:
+
+1.  change directory to the `/functions` folder (found at the root of the project). This folder contains all the backend code.
 1.  Then it will serve the `search` Cloud Function locally on `http://localhost:5000/angular-search-experience/us-central1/search`
 
-Please note that the `search` implements only the `POST` and `DELETE` HTTP methods, so you will need an HTTP client, such as `cURL` or `Postman`, to be able to request the Cloud Function.
+> Important: Please note that the `search` function implements only the `POST` and `DELETE` HTTP methods, allowing you to add and delete an entity, so you will need an HTTP client, such as `cURL` or `Postman`, to be able to request the Cloud Function.
 
 ## Development server: the front-end application
 
