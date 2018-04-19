@@ -9,6 +9,7 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",
+    "test:ci": "false && ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "predeploy": "npm run build:prod",
