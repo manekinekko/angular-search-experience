@@ -35,7 +35,7 @@ const validateAuthorizedToken = (req, res, next) => {
 app.use(cors);
 app.use(cookieParser);
 app.use(validateAuthorizedToken);
-app.post('/api/1/apps', (req, res) => {
+app.post('/1/apps', (req, res) => {
   console.log(`Adding: ${JSON.stringify(req.body)}`);
 
   algoliaIndex
@@ -53,7 +53,7 @@ app.post('/api/1/apps', (req, res) => {
       });
     });
 });
-app.delete('/api/1/apps/:id', (req, res) => {
+app.delete('/1/apps/:id', (req, res) => {
   const objectId = req.params.id;
 
   console.log(`Deleting: ${objectId}`);
