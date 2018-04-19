@@ -138,13 +138,12 @@ The production app is available on: https://searchapp.store. See the available f
 
 ### Search box
 
-![image](https://user-images.githubusercontent.com/1699357/38996307-3d26be2e-43eb-11e8-83e1-96e44cf78579.png?100)
+![search-box](https://user-images.githubusercontent.com/1699357/39013975-4dfb5358-4419-11e8-8335-855b2bdc29d7.gif)
 
 
-### Search results
+### Search results with highlights
 
-![image](https://user-images.githubusercontent.com/1699357/38996372-5a99d810-43eb-11e8-8ce7-41b59c9722cb.png)
-
+![search-result](https://user-images.githubusercontent.com/1699357/39014284-3fc1aaac-441a-11e8-874b-9d903ae7def3.gif)
 
 ### Sort options
 
