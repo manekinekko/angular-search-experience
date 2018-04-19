@@ -1,6 +1,6 @@
 <h1 align="center" >Angular Search Experience (by <img width="100" src="https://user-images.githubusercontent.com/1699357/38993980-664e3d0a-43e5-11e8-9e8e-d99a08cc3aea.png"/>)</h1>
 <p align="center">
-  This application is LIVE and available at this URL: <a href="https://angular-search-experience.firebaseapp.com">angular-search-experience.firebaseapp.com</a>
+  This application is LIVE and available at this URL: <a href="https://searchapp.store">https://searchapp.store</a>
   <br/>
   <img align="center"  height="600" src="https://raw.githubusercontent.com/manekinekko/angular-search-experience/master/docs/screenshots/angular-search-experience.gif?token=ABnuHTtZsIzUFMSAiUKBwO7FEU507Qnqks5a3mQSwA%3D%3D"/>
 </p>
@@ -85,8 +85,8 @@ Then, we can deploy the new build to firebase:
 ## Backend
 
 The production endpoints (cloud function) are available on: 
-1. POST: https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps
-2. DELETE: https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps/:id
+1. POST: https://searchapp.store/api/1/apps
+2. DELETE: https://searchapp.store/api/1/apps/:id
 
 In order to request the production Cloud Function, you can use this cURL commands:
 
@@ -94,7 +94,7 @@ In order to request the production Cloud Function, you can use this cURL command
 
 
 ```
-> curl -H "Authorization: SearchToken this-is-a-fake-token" -H "Content-Type: application/json" -X POST -d '{}' https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps
+> curl -H "Authorization: SearchToken this-is-a-fake-token" -H "Content-Type: application/json" -X POST -d '{}' https://searchapp.store/api/1/apps
 
 {"createdAt":"2018-04-19T13:17:10.343Z","taskID":29343382,"objectID":"10788302"}
 ```
@@ -104,14 +104,14 @@ In order to request the production Cloud Function, you can use this cURL command
 ### Deleting an entry from Algolia's index
 
 ```
-> curl -H "Authorization: SearchToken this-is-a-fake-token" -X DELETE https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps/10788302
+> curl -H "Authorization: SearchToken this-is-a-fake-token" -X DELETE https://searchapp.store/api/1/apps/10788302
 
 {"deletedAt":"2018-04-19T13:30:42.190Z","taskID":29353102,"objectID":"10788302"}
 ```
 
 ## Front-end
 
-The production app is available on: https://angular-search-experience.firebaseapp.com. See the available features below.
+The production app is available on: https://searchapp.store. See the available features below.
 
 # Architecture and available features (UI)
 
