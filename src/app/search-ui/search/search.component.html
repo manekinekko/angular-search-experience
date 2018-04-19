@@ -10,8 +10,6 @@
 
     <div class="card_sorting-options">
 
-      <span class="card_applications-count">{{ applicationsCount }}</span>
-
       <mat-button-toggle-group (change)="onSortOptionChange($event)" #group="matButtonToggleGroup" *ngIf="applications.length > 0">
         <mat-button-toggle [checked]="sortOption" value="relevance_desc">
           Most Relevant
