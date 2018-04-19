@@ -6,7 +6,13 @@
 
 <p align="center">
   <img align="center"  height="700" src="https://raw.githubusercontent.com/manekinekko/angular-search-experience/master/docs/screenshots/angular-search-experience.gif?token=ABnuHTtZsIzUFMSAiUKBwO7FEU507Qnqks5a3mQSwA%3D%3D"/>
+  <br>
+  <a align="center" href="https://searchapp.store" target="__blank">
+<img align="center" src="https://user-images.githubusercontent.com/1699357/39004007-769991ca-43fc-11e8-8fff-53fc916d34a8.png" /></a>
+
 </p>
+
+<br/>
 
 
 
