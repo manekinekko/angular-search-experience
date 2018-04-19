@@ -137,12 +137,13 @@ The production app is available on: https://angular-search-experience.firebaseap
 
 ## Lazy loading
 
-![image](https://user-images.githubusercontent.com/1699357/38996737-2066d480-43ec-11e8-89cd-85229f0f4770.png)
+![lazy-loading](https://user-images.githubusercontent.com/1699357/38998317-9817e1d8-43ef-11e8-958d-2601e233e95b.gif)
 
 
 ## Deeplinks
 
-//todo
+![deeplink](https://user-images.githubusercontent.com/1699357/38998031-0ae94bc6-43ef-11e8-86a6-c92410b3e80c.gif)
+
 
 
 
