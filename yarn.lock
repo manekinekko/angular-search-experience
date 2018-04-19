@@ -191,6 +191,12 @@
   dependencies:
     tslib "^1.9.0"
 
+"@angular/service-worker@^6.0.0-rc.1":
+  version "6.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-6.0.0-rc.5.tgz#f55f89a3012ae6e0bca21463a8fd538ae3425eac"
+  dependencies:
+    tslib "^1.9.0"
+
 "@compodoc/compodoc@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@compodoc/compodoc/-/compodoc-1.1.2.tgz#6d038ff2be0fd01b12d669dcb08caf9709dfa14a"
