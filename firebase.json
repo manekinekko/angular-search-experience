@@ -1,10 +1,12 @@
 {
   "hosting": {
     "public": "dist/angular-search-experience",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/api",
+        "function": "search"
+      }
     ]
   }
 }
