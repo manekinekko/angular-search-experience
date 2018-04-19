@@ -2,3 +2,11 @@
   margin-bottom: 30px;
   display: block;
 }
+
+.easter {
+  display: block;
+  height: 140px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}

@@ -10,7 +10,6 @@ export interface AlgoliaConfiguration {
 }
 
 @NgModule({
-  imports: [CommonModule],
   providers: [AlgoliaService]
 })
 export class AlgoliaModule {

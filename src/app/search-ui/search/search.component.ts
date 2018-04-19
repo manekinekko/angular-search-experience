@@ -13,6 +13,7 @@ import { SearchService, Application } from './../search.service';
 })
 export class SearchComponent implements OnInit {
   hitsPerPage = 20;
+  applicationsCount = 0;
   sortOption = 'rating_desc';
   private _applications: Application[];
   set applications(value: Application[]) {
@@ -44,6 +45,8 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     const handleResultSubscription = content => {
+      this.applicationsCount = content.nbHits;
+
       const categoriesFacet = content.getFacetValues('category') as any[];
       if (categoriesFacet.length > 1) {
         this.searchCategories = categoriesFacet;
