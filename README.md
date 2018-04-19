@@ -1,9 +1,14 @@
-<h1 align="center" >Angular Search Experience (by <img width="100" src="https://user-images.githubusercontent.com/1699357/38993980-664e3d0a-43e5-11e8-9e8e-d99a08cc3aea.png"/>)</h1>
+[![CircleCI](https://circleci.com/gh/manekinekko/angular-search-experience.svg?style=svg)](https://circleci.com/gh/manekinekko/angular-search-experience)
+<hr/>
+
+<h2 align="center" >Angular Search Experience (powered by <img width="100" src="https://user-images.githubusercontent.com/1699357/38993980-664e3d0a-43e5-11e8-9e8e-d99a08cc3aea.png"/>)</h2>
+
+
 <p align="center">
-  This application is LIVE and available at this URL: <a href="https://searchapp.store">https://searchapp.store</a>
-  <br/>
-  <img align="center"  height="600" src="https://raw.githubusercontent.com/manekinekko/angular-search-experience/master/docs/screenshots/angular-search-experience.gif?token=ABnuHTtZsIzUFMSAiUKBwO7FEU507Qnqks5a3mQSwA%3D%3D"/>
+  <img align="center"  height="700" src="https://raw.githubusercontent.com/manekinekko/angular-search-experience/master/docs/screenshots/angular-search-experience.gif?token=ABnuHTtZsIzUFMSAiUKBwO7FEU507Qnqks5a3mQSwA%3D%3D"/>
 </p>
+
+
 
 # Setting up the project
 
