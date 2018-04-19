@@ -1,16 +1,14 @@
 const functions = require('firebase-functions');
 const express = require('express');
+const helmet = require('helmet');
 const cookieParser = require('cookie-parser')();
 const cors = require('cors')({ origin: true });
 const app = express();
-
 const algoliaIndex = require('./algolia');
-
-const FAKE_TOKEN = 'this-is-a-fake-token';
 const BEARER = 'SearchToken';
 
 const validateAuthorizedToken = (req, res, next) => {
-  console.log('Check if request is authorized with the correct Agent');
+  console.log('Check if request is authorized with the correct header');
 
   if ((!req.headers.authorization || !req.headers.authorization.startsWith(`${BEARER} `)) && !req.cookies.__session) {
     console.error('No valid token was passed as a Bearer token in the Authorization header.');
@@ -19,21 +17,29 @@ const validateAuthorizedToken = (req, res, next) => {
   }
 
   if (req.headers.authorization && req.headers.authorization.startsWith(`${BEARER} `)) {
-    console.log('Found "Authorization" header');
     const idToken = req.headers.authorization.split(`${BEARER} `)[1];
+    console.log(`Found "Authorization" header with bearer: ${idToken}`);
 
     // accept any token (for the sake of this demo app)
-    if (idToken === FAKE_TOKEN) {
-      return next();
-    }
+    return next();
   }
 
   res.status(403).send('Unauthorized');
   return;
 };
 
+const filterMethods = (req, res, next) => {
+  if (['post', 'delete'].includes(req.method.toLowerCase())) {
+    next();
+  } else {
+    res.status(405).send('Method Not Allowed');
+  }
+};
+
+app.use(helmet());
 app.use(cors);
 app.use(cookieParser);
+app.use(filterMethods);
 app.use(validateAuthorizedToken);
 app.post('/1/apps', (req, res) => {
   console.log(`Adding: ${JSON.stringify(req.body)}`);
@@ -47,7 +53,7 @@ app.post('/1/apps', (req, res) => {
     })
     .catch(error => {
       console.error(error);
-      
+
       res.status(500).send({
         error
       });
