@@ -1,4 +1,4 @@
-<h1 align="center" >Angular Search Experience</h1>
+<h1 align="center" >Angular Search Experience (by <img width="100" src="https://user-images.githubusercontent.com/1699357/38993980-664e3d0a-43e5-11e8-9e8e-d99a08cc3aea.png"/>)</h1>
 <p align="center">
   This application is LIVE and available at this URL: <a href="https://angular-search-experience.firebaseapp.com">angular-search-experience.firebaseapp.com</a>
   <br/>
