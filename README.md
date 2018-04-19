@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/manekinekko/angular-search-experience.svg?style=svg)](https://circleci.com/gh/manekinekko/angular-search-experience)
+[![CircleCI](https://circleci.com/gh/manekinekko/angular-search-experience.svg?style=svg&circle-token=105771fd560c9c0f5b5506dbe734a47cb67b083c)](https://circleci.com/gh/manekinekko/angular-search-experience)
 <hr/>
 
 <h2 align="center" >Angular Search Experience (powered by <img width="100" src="https://user-images.githubusercontent.com/1699357/38993980-664e3d0a-43e5-11e8-9e8e-d99a08cc3aea.png"/>)</h2>
