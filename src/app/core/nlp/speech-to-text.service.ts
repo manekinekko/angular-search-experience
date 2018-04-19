@@ -1,6 +1,6 @@
+import { Observable } from 'rxjs';
 import { Injectable, NgZone } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs/internal/Observable';
 import { NlpService } from '@app/core/nlp/nlp.service';
 
 @Injectable({
