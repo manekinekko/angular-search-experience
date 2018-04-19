@@ -49,11 +49,17 @@ Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the
 > Important: Please note that the `search` function implements only the `POST` and `DELETE` HTTP methods, allowing you to add and delete an entity, so you will need an HTTP client, such as `cURL` or `Postman`, to be able to request the Cloud Function.
 
 
-We've decided to secure the Cloud Function (this is a good practice). So, in order to request the local `search` Cloud Function, you'll have to append an `Authorization` header to your requests. Use the following bearer:
+We've decided to secure the Cloud Function (this is a good practice). So, in order to request the local `search` Cloud Function, you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. 
+
+Here is an curl command:
 
 ```
-Authorization: SearchToken use-any-token-this-will-not-be-checked
+> curl -H "Authorization: SearchToken this-is-a-fake-token" -H "Content-Type: application/json" -X POST -d '{}' https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps
+
+{"createdAt":"2018-04-19T13:17:10.343Z","taskID":29343382,"objectID":"10788302"}
 ```
+
+> NOTE: we don't validate the `application` object on purpose.
 
 ### the front-end application
 
