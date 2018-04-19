@@ -121,34 +121,48 @@ The production app is available on: https://searchapp.store. See the available f
 
 # Architecture and available features (UI)
 
-## Search box
+## Component Architecture
 
-![image](https://user-images.githubusercontent.com/1699357/38996307-3d26be2e-43eb-11e8-83e1-96e44cf78579.png?100)
-
-
-## Search results
-
-![image](https://user-images.githubusercontent.com/1699357/38996372-5a99d810-43eb-11e8-8ce7-41b59c9722cb.png)
+![](https://raw.githubusercontent.com/manekinekko/angular-search-experience/master/src/assets/images/angular-search-experience-composition.png?token=ABnuHfcLQ6jyPEkiaMdf0qrnWOpnLv_Bks5a4ibLwA%3D%3D)
 
 
-## Sort options
+1. Component: `<app-search></app-search>`
+2. Component: `<app-search-input></app-search-input>` 
+3. Component: `<app-category></app-category>`
+4. Component: `<app-search-result></app-search-result>` 
+5. Component: `<mat-nav-list></mat-nav-list>`
+6. Directive: `[appRating]`
+7. Pipe: `freePriceLabel`
+
+## Features
+
+### Search box
+
+![search-box](https://user-images.githubusercontent.com/1699357/39013975-4dfb5358-4419-11e8-8335-855b2bdc29d7.gif)
+
+
+### Search results with highlights
+
+![search-result](https://user-images.githubusercontent.com/1699357/39014284-3fc1aaac-441a-11e8-874b-9d903ae7def3.gif)
+
+### Sort options
 
 ![image](https://user-images.githubusercontent.com/1699357/38996538-b4bbca74-43eb-11e8-924d-852094e963fa.png)
 
 
-## Facets options
+### Facets options
 
 ![image](https://user-images.githubusercontent.com/1699357/38996647-ede7a5de-43eb-11e8-8b16-9577ec017047.png)
 
 
-## Lazy loading
+### Lazy loading
 
 ![lazy-loading](https://user-images.githubusercontent.com/1699357/38998317-9817e1d8-43ef-11e8-958d-2601e233e95b.gif)
 
 
-## Deeplinks
+### Deeplinks
 
-![deeplink](https://user-images.githubusercontent.com/1699357/38998031-0ae94bc6-43ef-11e8-86a6-c92410b3e80c.gif)
+![deeplink](https://user-images.githubusercontent.com/1699357/39011672-6aca5576-4412-11e8-88de-a55dc9325f32.gif)
 
 
 
