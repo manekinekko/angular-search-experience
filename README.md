@@ -1,8 +1,6 @@
-[![CircleCI](https://circleci.com/gh/manekinekko/angular-search-experience.svg?style=svg&circle-token=105771fd560c9c0f5b5506dbe734a47cb67b083c)](https://circleci.com/gh/manekinekko/angular-search-experience)
-<hr/>
+<h2 align="center" >Angular Search Experience <img src="https://circleci.com/gh/manekinekko/angular-search-experience.svg?style=svg&circle-token=105771fd560c9c0f5b5506dbe734a47cb67b083c"/></h2>
 
-<h2 align="center" >Angular Search Experience (powered by <img width="100" src="https://user-images.githubusercontent.com/1699357/38993980-664e3d0a-43e5-11e8-9e8e-d99a08cc3aea.png"/>)</h2>
-
+<h4 align="center"><i>Powered by <img width="80" src="https://user-images.githubusercontent.com/1699357/38993980-664e3d0a-43e5-11e8-9e8e-d99a08cc3aea.png"/></i></h4>
 
 <p align="center">
   <img align="center"  height="700" src="https://raw.githubusercontent.com/manekinekko/angular-search-experience/master/docs/screenshots/angular-search-experience.gif?token=ABnuHTtZsIzUFMSAiUKBwO7FEU507Qnqks5a3mQSwA%3D%3D"/>
@@ -11,9 +9,6 @@
 <img align="center" src="https://user-images.githubusercontent.com/1699357/39004007-769991ca-43fc-11e8-8fff-53fc916d34a8.png" /></a>
 
 </p>
-
-<br/>
-
 
 
 # Setting up the project
