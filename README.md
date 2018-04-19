@@ -30,7 +30,9 @@ You will need `yarn` to install this project's dependencies. If you don't have `
 
 ### the backend (cloud function)
  
-The backed is relying on a Serverless architecture implemented Cloud Functions for Firebase. This project comes with `firebase-tools` as a local dependency. Please note that this dependency is usually installed globally.
+The backed is relying on a Serverless architecture implemented using Cloud Functions for Firebase. 
+
+This project comes with `firebase-tools` as a local dependency. This tool is a set of Firebase Command Line Interface (CLI) tools that can generate, run and deploy a Firebase project. Please note that this dependency is usually installed globally.
 
 Also, the Firebase runtime is using an older version of Node.js: `v6.11.5`. We've included a `.nvmrc` folder under `/functions`. This special file is a configuration file used by `NVM` to easily switch to a required version of Node.js inside a specific folder. If you don't already have `NVM` installed, please read [the installation guide](https://github.com/creationix/nvm#installation).
 
@@ -49,17 +51,7 @@ Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the
 > Important: Please note that the `search` function implements only the `POST` and `DELETE` HTTP methods, allowing you to add and delete an entity, so you will need an HTTP client, such as `cURL` or `Postman`, to be able to request the Cloud Function.
 
 
-We've decided to secure the Cloud Function (this is a good practice). So, in order to request the local `search` Cloud Function, you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. 
-
-Here is an curl command:
-
-```
-> curl -H "Authorization: SearchToken this-is-a-fake-token" -H "Content-Type: application/json" -X POST -d '{}' https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps
-
-{"createdAt":"2018-04-19T13:17:10.343Z","taskID":29343382,"objectID":"10788302"}
-```
-
-> NOTE: we don't validate the `application` object on purpose.
+We've decided to secure the Cloud Function (this is a good practice). So, in order to request the local `search` Cloud Function, you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. See an example of cURL command below.
 
 ### the front-end application
 
@@ -90,10 +82,34 @@ Then, we can deploy the new build to firebase:
 
 # Production environments
 
+## Backend
+
+The production backend (cloud function) is available on: https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps/{:id}
+
+In order to request the production Cloud Function, you can use this cURL commands:
+
+### Adding a new entry to Algolia's index
+
+
+```
+> curl -H "Authorization: SearchToken this-is-a-fake-token" -H "Content-Type: application/json" -X POST -d '{}' https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps
+
+{"createdAt":"2018-04-19T13:17:10.343Z","taskID":29343382,"objectID":"10788302"}
+```
+
+> NOTE: we don't validate the `application` object on purpose.
+
+### Deleting an entry from Algolia's index
+
+```
+> curl -H "Authorization: SearchToken this-is-a-fake-token" -X DELETE https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps/10788302
+
+{"deletedAt":"2018-04-19T13:30:42.190Z","taskID":29353102,"objectID":"10788302"}
+```
+
+## Front-end
+
 The production app is available on: https://angular-search-experience.firebaseapp.com
-
-The production backend (cloud function) is available on: https://us-central1-angular-search-experience.cloudfunctions.net/search
-
 
 # Implemented features
 
