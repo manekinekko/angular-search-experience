@@ -84,7 +84,9 @@ Then, we can deploy the new build to firebase:
 
 ## Backend
 
-The production backend (cloud function) is available on: https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps/{:id}
+The production endpoints (cloud function) are available on: 
+1. POST: https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps
+2. DELETE: https://us-central1-angular-search-experience.cloudfunctions.net/search/api/1/apps/:id
 
 In order to request the production Cloud Function, you can use this cURL commands:
 
@@ -109,9 +111,46 @@ In order to request the production Cloud Function, you can use this cURL command
 
 ## Front-end
 
-The production app is available on: https://angular-search-experience.firebaseapp.com
+The production app is available on: https://angular-search-experience.firebaseapp.com. See the available features below.
 
-# Implemented features
+# Architecture and available features (UI)
 
-## Bakend
+## Search box
+
+![image](https://user-images.githubusercontent.com/1699357/38996307-3d26be2e-43eb-11e8-83e1-96e44cf78579.png?100)
+
+
+## Search results
+
+![image](https://user-images.githubusercontent.com/1699357/38996372-5a99d810-43eb-11e8-8ce7-41b59c9722cb.png)
+
+
+## Sort options
+
+![image](https://user-images.githubusercontent.com/1699357/38996538-b4bbca74-43eb-11e8-924d-852094e963fa.png)
+
+
+## Facets options
+
+![image](https://user-images.githubusercontent.com/1699357/38996647-ede7a5de-43eb-11e8-8b16-9577ec017047.png)
+
+
+## Lazy loading
+
+![image](https://user-images.githubusercontent.com/1699357/38996737-2066d480-43ec-11e8-89cd-85229f0f4770.png)
+
+
+## Deeplinks
+
+//todo
+
+
+
+
+
+
+
+
+
+
 
