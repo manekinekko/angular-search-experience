@@ -170,7 +170,16 @@ Read more about the API documentation here: https://manekinekko.github.io/angula
 
 
 
+## DANGER ZONE: EASTER EGG AHEAD!
 
+<details>
+  <summary>Easter Egg inside!!</summary>
+  <p>
+    We have included a chatbot this application. It can help you search for applications using your voice. Just ask it to <b>help you search for a weather app</b> or <b>find a game</b>.
+    </p>
+  
+  To enable the bot, you will need to turn on your microphone and speakers. The, just click 6 times on the application logo (the header).
+</details>
 
 
 
