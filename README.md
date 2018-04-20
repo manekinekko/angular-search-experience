@@ -179,6 +179,8 @@ Read more about the API documentation here: https://manekinekko.github.io/angula
     </p>
   
   To enable the bot, you will need to turn on your microphone and speakers. The, just click 6 times on the application logo (the header).
+  
+  <b>NOTE: The implementation of this bot is experimental (and for fun!) and was not trained against a large set of users' utterances!</b>
 </details>
 
 
