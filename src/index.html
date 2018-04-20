@@ -26,7 +26,7 @@
 
     .main-header--gradient-background {
       background: #3532a8;
-      background: linear-gradient(45deg, #8C52E1 0%, #F95583 100%);
+      background: linear-gradient(45deg, #8C52E1 50%, #F95583 100%);
     }
 
     .main-header {
@@ -36,15 +36,29 @@
       height: 218px;
     }
 
-    .main-header_angular-logo {
-      background-image: url(https://angular.io/assets/images/logos/angular/angular_whiteTransparent.svg);
-      background-size: cover;
+    .main-hearder_title {
+      background-image: url(assets/images/searchapp-store-title.png);
+      display: block;
+      width: 100%;
+      height: 40px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .main-header_logo {
+      background-image: url(assets/images/searchapp-store-logo.png);
+      background-size: 180px;
       background-repeat: no-repeat;
       display: inline-block;
-      width: 45px;
-      height: 45px;
-      top: 9px;
+      width: 100%;
+      height: 125px;
+      top: -16px;
       position: relative;
+      background-position: center top;
+      text-transform: uppercase;
+      padding-top: 80px;
+      font-weight: 500;
     }
 
     .loader {
@@ -57,8 +71,8 @@
 
 <body>
   <div class="main-header main-header--gradient-background">
-    <h1 class="mat-display-1">
-      SearchApp
+    <h1 class="mat-display-1 main-header_logo">
+      <span class="main-hearder_title"></span>
     </h1>
   </div>
   <app-root>
