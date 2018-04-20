@@ -17,14 +17,15 @@ export class TextToSpeechService {
 
   say(text) {
     const msg = new SpeechSynthesisUtterance();
-    // const voices = window.speechSynthesis.getVoices();
-    // console.log(voices);
 
+    // In case we want to tweak the default voice:
+    // const voices = window.speechSynthesis.getVoices();
     // msg.voice = voices[49]; // Note: some voices don't support altering params
     // msg['voiceURI'] = 'native';
     // msg.volume = 1; // 0 to 1
     // msg.rate = 1; // 0.1 to 10
     // msg.pitch = 0; // 0 to 2
+
     msg.text = text;
     msg.lang = 'en-US';
 

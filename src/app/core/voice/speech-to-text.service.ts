@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Injectable, NgZone } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { NlpService } from '@app/core/nlp/nlp.service';
+import { NlpService } from './nlp.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class SpeechToTextService {
   onstart$: Observable<{}>;
   constructor() {}
 
-  listen() {
+  listen(forceStart = false) {
     if (!('webkitSpeechRecognition' in window)) {
       console.error('Your device is not compatible with this easter egg. sorry!');
     } else {
@@ -27,13 +27,15 @@ export class SpeechToTextService {
       this.setupListeners();
     }
 
-    if (this.recognizing) {
-      this.recognition.stop();
-      return;
+    if (forceStart) {
+      if (this.recognizing) {
+        this.recognition.stop();
+        return;
+      }
+      this.recognition.lang = 'en-US';
+      this.recognition.start();
+      this.start_timestamp = Date.now();
     }
-    this.recognition.lang = 'en-US';
-    this.recognition.start();
-    this.start_timestamp = Date.now();
   }
 
   private setupListeners() {

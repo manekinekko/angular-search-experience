@@ -1,8 +1,8 @@
 import { debounceTime, distinctUntilChanged, switchMap, filter } from 'rxjs/operators';
-import { NlpService } from './nlp/nlp.service';
+import { NlpService } from './voice/nlp.service';
 import { Injectable, NgZone } from '@angular/core';
-import { SpeechToTextService } from '@app/core/nlp/speech-to-text.service';
-import { TextToSpeechService } from '@app/core/nlp/text-to-speech.service';
+import { SpeechToTextService } from './voice/speech-to-text.service';
+import { TextToSpeechService } from './voice/text-to-speech.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { from } from 'rxjs/internal/observable/from';
 
@@ -18,10 +18,12 @@ export class EastereggService {
     private nlp: NlpService
   ) {}
 
-  surprise() {
+  async surprise() {
     console.log('Activating speach recognition...');
     this.stt.listen();
     this.setup();
+    const response = await this.nlp.process('request welcome');
+    this.tts.say(response.speech);
   }
 
   private setup() {
