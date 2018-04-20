@@ -1,7 +1,11 @@
 {
   "name": "angular-search-experience-functions",
   "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions"
+  },
   "dependencies": {
+    "@google-cloud/text-to-speech": "^0.1.0",
     "algoliasearch": "^3.26.0",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
