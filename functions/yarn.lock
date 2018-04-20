@@ -279,6 +279,12 @@ acorn@^4.0.0:
   version "4.0.13"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.13.tgz#105495ae5361d697bd195c825192e1ad7f253787"
 
+actions-on-google@2.0.0-alpha.1:
+  version "2.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/actions-on-google/-/actions-on-google-2.0.0-alpha.1.tgz#5ca957a82a09fe2b0b97c633f4bb56b48136c216"
+  dependencies:
+    debug "^3.1.0"
+
 agentkeepalive@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/agentkeepalive/-/agentkeepalive-2.2.0.tgz#c5d1bd4b129008f1163f236f86e5faea2026e2ef"
@@ -789,6 +795,13 @@ destroy@~1.0.4:
 detect-libc@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
+
+dialogflow-fulfillment@^0.3.0-beta.2:
+  version "0.3.0-beta.2"
+  resolved "https://registry.yarnpkg.com/dialogflow-fulfillment/-/dialogflow-fulfillment-0.3.0-beta.2.tgz#b4aa3287730d68c258def9e851eeaeabcfa58d40"
+  dependencies:
+    actions-on-google "2.0.0-alpha.1"
+    debug "^2.2.0"
 
 diff-match-patch@^1.0.0:
   version "1.0.0"

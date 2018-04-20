@@ -6,6 +6,10 @@
       {
         "source": "/api/**",
         "function": "search"
+      },
+      {
+        "source": "/bot",
+        "function": "bot"
       }
     ]
   }
