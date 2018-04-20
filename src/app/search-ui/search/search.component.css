@@ -29,7 +29,7 @@
   background-position: center center;
 }
 
-.content.no-result {
+.card_content.no-result {
   background-image: url('https://cdn.dribbble.com/users/37530/screenshots/2485318/no-results.png');
 }
 
