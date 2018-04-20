@@ -2,6 +2,10 @@ import { Directive, OnInit, Renderer2, ElementRef, Input } from '@angular/core';
 
 export const MAX_RATING = 5;
 
+/**
+ * This directive is used to render a number of stars based on a given rating number (one star be 1—unit)
+ * If the rating is half unit (0.5), a half star will be rendered.
+ */
 @Directive({
   selector: 'span[appRating]'
 })
@@ -15,12 +19,12 @@ export class RatingDirective implements OnInit {
 
     const ceilRating = Math.ceil(this.rating);
     const floorRating = Math.floor(this.rating);
-    const ifHalf = (ceilRating - this.rating) === 0.5;
+    const ifHalf = ceilRating - this.rating === 0.5;
 
     const fragment = [
       ...Array(floorRating).fill('<i class="material-icons">star</i>'),
-      (ifHalf ? '<i class="material-icons">star_half</i>' : ''),
-      ...Array(MAX_RATING - ceilRating).fill('<i class="material-icons">star_border</i>'),
+      ifHalf ? '<i class="material-icons">star_half</i>' : '',
+      ...Array(MAX_RATING - ceilRating).fill('<i class="material-icons">star_border</i>')
     ].join('');
 
     this.renderer.setProperty(this.host.nativeElement, 'innerHTML', fragment);

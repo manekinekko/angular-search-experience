@@ -27,8 +27,8 @@ export class SearchInputComponent implements OnInit, AfterContentInit {
   ngOnInit() {
     this.searchGroup.valueChanges
       .pipe(
+        // prettier-ignore
         map(event => event.query),
-        // debounceTime(100),
         distinctUntilChanged()
       )
       .subscribe(value => {
@@ -46,6 +46,10 @@ export class SearchInputComponent implements OnInit, AfterContentInit {
       });
   }
 
+  /**
+   * Wait till the inner content of this component has been initialised and renderered,
+   * and then set the focus on the input and register the DeepLink service.
+   */
   ngAfterContentInit() {
     this.inputRef.nativeElement.focus();
     this.deeplink.registerFormGroup(this.searchGroup);

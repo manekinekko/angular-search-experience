@@ -23,12 +23,21 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * Emits a Category on selection change.
+   * @param category The category to be emitted.
+   */
   onSelectionChanged(category: Category) {
     if (category._dirty) {
       this.selectionChanged.emit(category);
     }
   }
 
+  /**
+   * Select or unselect a Category. Trick: we take advantage of the existing "isRefined" property
+   * as a selection flag.
+   * @param category The category to be selected/unselected.
+   */
   toggleSelected(category: Category) {
     category._dirty = true;
     category.isRefined = !category.isRefined;

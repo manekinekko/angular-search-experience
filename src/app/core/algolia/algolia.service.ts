@@ -10,6 +10,12 @@ export interface SearchState {
   error$: Observable<any>;
 }
 
+/**
+ * The Algolia search strategy. This implementtion uses three indices based on the sort options:
+ * - `applications_by_price_asc`: used for retreiving entries sorted by price (in ascending order), ie. Free apps first.
+ * - `applications_by_rating_desc`: used for retreiving entries sorted by rating (in descending order), ie. Popular apps first.
+ * - `applications` (default): used for retreiving entries sorted by the default Algolia ranking algorithm, ie. Relevance.
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +27,9 @@ export class AlgoliaService {
   };
   client;
 
+  /**
+   * A map of the different search states: `search$`, `result$`, `change$`, `error$`.
+   */
   searchState: SearchState;
 
   constructor(
@@ -32,17 +41,22 @@ export class AlgoliaService {
 
     this.searchState = {} as any;
 
-    this.configureIndex('applications');
+    this.configureMasterIndex('applications');
   }
 
-  configureIndex(indexName: string) {
+  /**
+   * Configures the default Algolia index (master).
+   * This will initialise all the search states `search$`, `result$`, `change$`, `error$`.
+   * @param indexName The index name.
+   */
+  private configureMasterIndex(indexName: string) {
     this.indices[indexName] = algoliasearchHelper(this.client, indexName, {
       disjunctiveFacets: ['category']
     });
 
     this.searchState = {} as SearchState;
 
-    // handle algolia events
+    // map algolia's events to observables
     ['search', 'result', 'change', 'error'].forEach(eventName => {
       this.searchState[`${eventName}$`] = new Observable(observer => {
         const handler = e => observer.next(e);
@@ -52,10 +66,19 @@ export class AlgoliaService {
     });
   }
 
-  configure(options) {
+  /**
+   * Set an initial search parameters to be used by the search method.
+   * @param options
+   */
+  setQueryParameter(options) {
     this.indices.applications.setQueryParameter(options);
   }
 
+  /**
+   * Run the actual search process.
+   * @param indexName The index name to be used.
+   * @param query The user query used for search.
+   */
   private search(indexName: string, query: string) {
     if (query.trim() !== '') {
       this.indices.applications
@@ -65,11 +88,19 @@ export class AlgoliaService {
     }
   }
 
-  toggleFacetRefinement(facet: any = {}) {
+  /**
+   * Enable or disable the Facet refinement when search against the master index.
+   * @param facet The facet name and query
+   */
+  toggleFacetRefinement(facet: { name: string; query: string } = {} as any) {
     this.indices.applications.toggleFacetRefinement(facet.name, facet.query).search();
   }
 
+  /**
+   * Search the next page (used for the inifinite scroll feature)
+   */
   nextPage() {
+    // request the next page only if the current query is not empty!
     if (this.indices.applications.state.query !== '') {
       this.indices.applications.nextPage().search();
     }

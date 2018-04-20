@@ -16,6 +16,12 @@ export class SearchComponent implements OnInit {
   applicationsCount = 0;
   sortOption = 'rating_desc';
   private _applications: Application[];
+
+  /**
+   * Reseting the state of the "appliations" property will automatically clear the list of the categories
+   * reset the scroll behavior and reset the last count.
+   *
+   */
   set applications(value: Application[]) {
     if (!value || value.length === 0) {
       // reset the component local state
@@ -31,14 +37,25 @@ export class SearchComponent implements OnInit {
     return this._applications;
   }
 
+  /**
+   * The categories (facets) computed for each search result.
+   */
   searchCategories: Category[];
+
+  /**
+   * An internal flag used when an infinite scroll has be initiated.
+   */
   isInfiniteScrollRequested: boolean;
+
+  /**
+   * Keep track of the previous count (number of hits).
+   */
   lastResultCount = Infinity;
 
   constructor(private search: AlgoliaService, private snackBar: MatSnackBar) {
     this.applications = [];
     this.searchCategories = [];
-    this.search.configure({
+    this.search.setQueryParameter({
       hitsPerPage: this.hitsPerPage
     });
   }

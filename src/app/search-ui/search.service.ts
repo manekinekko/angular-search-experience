@@ -8,15 +8,28 @@ import { Observable } from 'rxjs';
 
 export interface Application {
   category: string;
+
+  /**
+   * From 0 to 5.
+   */
   rating: number;
   name: string;
   image: string;
   link: string;
   ratingCount: number;
   price: number;
+
+  /**
+   * Property provided by the Algolia Index
+   */
   _highlightResult?: {};
 }
 
+/**
+ * The initial implemenation of the search API which used a mock Dataset.
+ *
+ * @deprecated Use "core/algolia/algolia.service" instead.
+ */
 @Injectable({
   providedIn: 'root'
 })

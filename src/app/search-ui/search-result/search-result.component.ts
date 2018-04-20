@@ -13,6 +13,10 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * Use the entry (appliation) name as a unique key for the trackBy function.
+   * @param entry The current entry to use as a filter.
+   */
   entryName(entry: Application) {
     return entry && entry.name;
   }
