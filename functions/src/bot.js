@@ -38,7 +38,7 @@ exports.bot = functions.https.onRequest((request, response) => {
           } else {
             const last = apps.pop();
             agent.add(
-              `I found ${result.hits.length} application${s} about ${topic}. Here are ${apps.length} of them: ${apps
+              `I found ${result.hits.length} applications about ${topic}. Here are ${apps.length} of them: ${apps
                 .map(app => app.name)
                 .join(', ')} and ${last}.`
             );
