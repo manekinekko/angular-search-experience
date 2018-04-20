@@ -134,35 +134,39 @@ The production app is available on: https://searchapp.store. See the available f
 6. Directive: `[appRating]`
 7. Pipe: `freePriceLabel`
 
+Read more about the API documentation here: https://manekinekko.github.io/angular-search-experience/index.html
+
+
 ## Features
 
 ### Search box
 
-![search-box](https://user-images.githubusercontent.com/1699357/39013975-4dfb5358-4419-11e8-8335-855b2bdc29d7.gif)
+<img src="https://user-images.githubusercontent.com/1699357/39013975-4dfb5358-4419-11e8-8335-855b2bdc29d7.gif" width="800"/>
 
 
 ### Search results with highlights
 
-![search-result](https://user-images.githubusercontent.com/1699357/39014284-3fc1aaac-441a-11e8-874b-9d903ae7def3.gif)
+<img src="https://user-images.githubusercontent.com/1699357/39014284-3fc1aaac-441a-11e8-874b-9d903ae7def3.gif" width="800"/>
 
 ### Sort options
 
-![image](https://user-images.githubusercontent.com/1699357/38996538-b4bbca74-43eb-11e8-924d-852094e963fa.png)
+<img src="https://user-images.githubusercontent.com/1699357/38996538-b4bbca74-43eb-11e8-924d-852094e963fa.png" width="800"/>
 
 
 ### Facets options
 
-![image](https://user-images.githubusercontent.com/1699357/38996647-ede7a5de-43eb-11e8-8b16-9577ec017047.png)
+<img src="https://user-images.githubusercontent.com/1699357/38996647-ede7a5de-43eb-11e8-8b16-9577ec017047.png" width="800"/>
 
 
 ### Lazy loading
 
-![lazy-loading](https://user-images.githubusercontent.com/1699357/38998317-9817e1d8-43ef-11e8-958d-2601e233e95b.gif)
+
+<img src="https://user-images.githubusercontent.com/1699357/38998317-9817e1d8-43ef-11e8-958d-2601e233e95b.gif" width="800"/>
 
 
 ### Deeplinks
 
-![deeplink](https://user-images.githubusercontent.com/1699357/39011672-6aca5576-4412-11e8-88de-a55dc9325f32.gif)
+<img src="https://user-images.githubusercontent.com/1699357/39011672-6aca5576-4412-11e8-88de-a55dc9325f32.gif" width="800"/>
 
 
 
