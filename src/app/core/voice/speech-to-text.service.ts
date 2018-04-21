@@ -76,6 +76,10 @@ export class SpeechToTextService {
     this.recognition.stop();
   }
   start() {
+    if (this.recognizing) {
+      this.recognition.stop();
+      return;
+    }
     this.recognition.start();
   }
 
@@ -110,7 +114,7 @@ export class SpeechToTextService {
   private handleOnError(event) {
     if (event.error === 'no-speech') {
       console.log('info_no_speech');
-      console.error(`Sorry, I didn't hear anything.`);
+      console.error(`Sorry, I didn't hear anything. Stopping.`);
     }
     if (event.error === 'audio-capture') {
       console.error(`Sorry, your mic isn't available.`);

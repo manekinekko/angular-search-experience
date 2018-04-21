@@ -15,11 +15,11 @@ export class NlpService {
   async process(message: string) {
     try {
       const response = (await this.client.textRequest(message)) as any;
-
       const url = response.result.contexts && response.result.contexts[0] && response.result.contexts[0].parameters.url;
+      const speech = response.result.fulfillment.speech;
       return {
-        speech: response.result.fulfillment.speech,
-        url
+        speech: speech.replace(/<<(.*)>>/gi, ''),
+        link: (speech.match(/<<(.*)>>/) || [null, null])[1]
       };
     } catch (error) {
       console.error(error);
