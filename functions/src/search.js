@@ -1,6 +1,7 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const helmet = require('helmet');
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')();
 const cors = require('cors')({ origin: true });
 const app = express();
@@ -37,6 +38,7 @@ const filterMethods = (req, res, next) => {
 };
 
 app.use(helmet());
+app.use(bodyParser.json());
 app.use(cors);
 app.use(cookieParser);
 app.use(filterMethods);
@@ -88,3 +90,4 @@ app.delete('/1/apps/:id', (req, res) => {
 });
 
 exports.search = functions.https.onRequest(app);
+exports.app = app;
