@@ -34,9 +34,18 @@ You will need `yarn` to install this project's dependencies. If you don't have `
 
 ## Developement server
 
-### the backend (cloud function)
+We've decided to secure the Cloud Function (this is a good practice). So, in order to request the `search` API you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. See an example of cURL command below.
+
+
+### Option 1 (recommended): Express
+
+In order to try out the server on your localm machine, run the following command: `yarn start:backend`
+
+### Option 2 (advanced):the backend (cloud function)
+
+> This option requires you to be logged in to your firebase account and have access to this projet (on firebase). Only caretakers have access to the firebase project!
  
-The backed is relying on a Serverless architecture implemented using Cloud Functions for Firebase. 
+Another version of the backed is relying on a Serverless architecture implemented using Cloud Functions for Firebase. 
 
 This project comes with `firebase-tools` as a local dependency. This tool is a set of Firebase Command Line Interface (CLI) tools that can generate, run and deploy a Firebase project. Please note that this dependency is usually installed globally.
 
@@ -49,15 +58,13 @@ Use `NVM` to install the required Node.js version and then use it (only inside t
 > nvm use
 ```
 
-Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the `search` Cloud Function locally. For that, run `yarn start:backend`. This command will do two things:
+Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the `search` Cloud Function locally. For that, run `yarn start:backend:firebase`. This command will do two things:
 
 1.  change directory to the `/functions` folder (found at the root of the project). This folder contains all the backend code.
 1.  Then it will serve the `search` Cloud Function locally on `http://localhost:5000/angular-search-experience/us-central1/search`
 
 > Important: Please note that the `search` function implements only the `POST` and `DELETE` HTTP methods, allowing you to add and delete an entity, so you will need an HTTP client, such as `cURL` or `Postman`, to be able to request the Cloud Function.
 
-
-We've decided to secure the Cloud Function (this is a good practice). So, in order to request the local `search` Cloud Function, you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. See an example of cURL command below.
 
 ### the front-end application
 
