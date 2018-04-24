@@ -36,7 +36,7 @@ You will need `yarn` to install this project's dependencies. If you don't have `
 
 We've decided to secure the Cloud Function (this is a good practice). So, in order to request the `search` API you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. See an example of cURL command below.
 
-Before you start the server, you will need to add a couple of environement variables inside a .env file. You can use this [env template file](https://github.com/manekinekko/angular-search-experience/blob/master/functions/env) as an example, and set:
+Before you start the server, you will need to add a couple of environement variables inside a .env file, in the `/functions` folder. You can use this [env template file](https://github.com/manekinekko/angular-search-experience/blob/master/functions/env) as an example, and set:
 
 - algolia_applicationid=`YOUR_ALGOLIA_APPLICATION_ID`
 - algolia_apikey=`YOUR_ALGOLIA_API_KEY`
@@ -197,8 +197,23 @@ Read more about the API documentation here: https://manekinekko.github.io/angula
 
 
 
+## Known issues
 
+#### Found incompatible module
 
+##### error dialogflow-fulfillment@0.3.0-beta.2: The engine "node" is incompatible with this module. Expected version "~8.0".
 
+```
+yarn install v1.5.1
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+error dialogflow-fulfillment@0.3.0-beta.2: The engine "node" is incompatible with this module. Expected version "~8.0".
+error An unexpected error occurred: "Found incompatible module".
+info If you think this is a bug, please open a bug report with the information provided in "/Users/vvo/Dev/Algolia/angular-search-experience/functions/yarn-error.log".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+```
 
-
+Workaround:
+- Run `nvm use 8.0` inside the `/functions` folder.
+- Run `yarn install`.
+- Run `cd ..` then `yarn start:backend`.
