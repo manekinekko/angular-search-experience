@@ -3,7 +3,7 @@
 <h4 align="center"><i>Powered by <img width="80" src="https://user-images.githubusercontent.com/1699357/38993980-664e3d0a-43e5-11e8-9e8e-d99a08cc3aea.png"/></i></h4>
 
 <p align="center">
-  <img align="center"  height="700" src="https://raw.githubusercontent.com/manekinekko/angular-search-experience/master/docs/screenshots/angular-search-experience.gif?token=ABnuHTtZsIzUFMSAiUKBwO7FEU507Qnqks5a3mQSwA%3D%3D"/>
+  <img align="center"  height="700" src="https://raw.githubusercontent.com/manekinekko/angular-search-experience/master/docs/screenshots/angular-search-experience.gif?token=ABnuHVlibKQ8XUcgrnJnoiAWm4eZMroBks5a6MtcwA%3D%3D"/>
   <br>
   <a align="center" href="https://searchapp.store" target="__blank">
 <img align="center" src="https://user-images.githubusercontent.com/1699357/39004007-769991ca-43fc-11e8-8fff-53fc916d34a8.png" /></a>
@@ -35,6 +35,11 @@ You will need `yarn` to install this project's dependencies. If you don't have `
 ## Developement server
 
 We've decided to secure the Cloud Function (this is a good practice). So, in order to request the `search` API you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. See an example of cURL command below.
+
+Before you start the server, you will need to add a couple of environement variables inside a .env file. You can use this [env template file](https://github.com/manekinekko/angular-search-experience/blob/master/functions/env) as an example, and set:
+
+- algolia_applicationid=`YOUR_ALGOLIA_APPLICATION_ID`
+- algolia_apikey=`YOUR_ALGOLIA_API_KEY`
 
 
 ### Option 1 (recommended): Express
