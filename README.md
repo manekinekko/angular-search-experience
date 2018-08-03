@@ -10,6 +10,10 @@
 
 </p>
 
+# Disclaimer
+
+This demo application is using the low level Algolia search library. If you're building a similar application, please use the official [Angular InstaSearch library](https://github.com/algolia/angular-instantsearch).
+
 
 # Setting up the project
 
