@@ -37,10 +37,10 @@
   display: block;
   text-decoration: none;
   color: gray;
-  padding: 4px 60px;
+  padding: 4px 80px;
   margin: 0 20px 0;
   text-align: right;
-  background-image: url(https://23276-presscdn-pagely.netdna-ssl.com/wp-content/uploads/2014/07/algolia-logo-light-300x250.png);
+  background-image: url(/assets/images/algolia-logo.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right center;
