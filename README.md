@@ -79,7 +79,7 @@ Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the
 
 At the root of the project, run `yarn start` to start the front-end dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-The front-end application was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0-rc.4.
+The front-end application was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
 ## Build
 
