@@ -20,7 +20,7 @@ In order to download (clone) this project on your machine, you need to have `git
 Once installed, open up a terminal shell and clone this repository using the following command:
 
 ```
-> git clone https://github.com/manekinekko/angular-search-experience.git
+> git clone https://github.com/sfeir-open-source/angular-search-experience.git
 ```
 
 ## Installing the dependencies
