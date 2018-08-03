@@ -54,7 +54,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private search: AlgoliaService, private snackBar: MatSnackBar) {
     this.applications = [];
-    this.searchCategories = [];
+    this.updateSearchCategories([]);
     this.search.setQueryParameter({
       hitsPerPage: this.hitsPerPage
     });
@@ -66,7 +66,7 @@ export class SearchComponent implements OnInit {
 
       const categoriesFacet = content.getFacetValues('category') as any[];
       if (categoriesFacet.length > 1) {
-        this.searchCategories = categoriesFacet;
+        this.updateSearchCategories(categoriesFacet);
       }
 
       this.lastResultCount = content.hits.length;
@@ -133,5 +133,9 @@ export class SearchComponent implements OnInit {
       default:
         this.search.sortByRelevance();
     }
+  }
+
+  updateSearchCategories(newCategories: Category[]) {
+    this.searchCategories = newCategories.sort((a, b) => a.name > b.name ? 1 : -1 );
   }
 }
