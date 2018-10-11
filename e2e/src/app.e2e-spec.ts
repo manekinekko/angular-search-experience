@@ -1,4 +1,5 @@
 import { AppPage } from './app.po';
+import {by, element} from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -7,8 +8,8 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should show search input', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(element(by.id('mat-input-0')).getAttribute('placeholder')).toEqual('Search for popular apps...');
   });
 });
