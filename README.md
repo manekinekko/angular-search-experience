@@ -12,7 +12,7 @@
 
 # Disclaimer
 
-This demo application is using the low level Algolia search library. If you're building a similar application, please use the official [Angular InstaSearch library](https://github.com/algolia/angular-instantsearch).
+This reference application is using the low level Algolia search library. If you're building a similar application, please use the official [Angular InstaSearch library](https://github.com/algolia/angular-instantsearch).
 
 
 # Setting up the project
@@ -40,7 +40,7 @@ You will need `yarn` to install this project's dependencies. If you don't have `
 
 We've decided to secure the Cloud Function (this is a good practice). So, in order to request the `search` API you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. See an example of cURL command below.
 
-Before you start the server, you will need to add a couple of environement variables inside a .env file, in the `/functions` folder. You can use this [env template file](https://github.com/manekinekko/angular-search-experience/blob/master/functions/env) as an example, and set:
+Before you start the server, you will need to add a couple of environement variables inside a .env file, in the `/functions` folder. You can use this [env template file](https://github.com/sfeir-open-source/angular-search-experience/blob/master/functions/env) as an example, and set:
 
 - algolia_applicationid=`YOUR_ALGOLIA_APPLICATION_ID`
 - algolia_apikey=`YOUR_ALGOLIA_API_KEY`
@@ -150,7 +150,7 @@ The production app is available on: https://searchapp.store. See the available f
 6. Directive: `[appRating]`
 7. Pipe: `freePriceLabel`
 
-Read more about the API documentation here: https://manekinekko.github.io/angular-search-experience/index.html
+Read more about the API documentation here: https://sfeir-open-source.github.io/angular-search-experience/index.html
 
 
 ## Features
