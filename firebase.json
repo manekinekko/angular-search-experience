@@ -1,16 +1,50 @@
 {
-  "hosting": {
-    "public": "dist/angular-search-experience",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [
-      {
-        "source": "/api/**",
-        "function": "search"
-      },
-      {
-        "source": "/bot",
-        "function": "bot"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "target": "normal",
+      "public": "dist/angular-search-experience-browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "function": "search"
+        },
+        {
+          "source": "/bot",
+          "function": "bot"
+        }
+      ]
+    },
+    {
+      "target": "ssr",
+      "public": "dist/public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "function": "search"
+        },
+        {
+          "source": "/bot",
+          "function": "bot"
+        },
+        {
+          "source": "**/*.*",
+          "destination": "/index2.html"
+        },
+        {
+          "source": "**",
+          "function": "ssrApp"
+        }
+      ]
+    }
+  ]
 }

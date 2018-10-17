@@ -1,10 +1,12 @@
 import { debounceTime, distinctUntilChanged, switchMap, filter, tap } from 'rxjs/operators';
-import { NlpService } from './voice/nlp.service';
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, Inject } from '@angular/core';
+import { NLP_SERVICE } from './voice/inject-tokens';
+import { INlpService } from './voice/nlp.interface';
 import { SpeechToTextService } from './voice/speech-to-text.service';
 import { TextToSpeechService } from './voice/text-to-speech.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { from } from 'rxjs/internal/observable/from';
+import { WINDOW } from './window-ref.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,8 @@ export class EastereggService {
     private snackBar: MatSnackBar,
     private stt: SpeechToTextService,
     private tts: TextToSpeechService,
-    private nlp: NlpService
+    @Inject(NLP_SERVICE) private nlp: INlpService,
+    @Inject(WINDOW) private window,
   ) {}
 
   async surprise() {
@@ -57,7 +60,7 @@ export class EastereggService {
 
         if (response.speech === 'OPEN_LINK_OK') {
           this.tts.say('Alright, opening the application page');
-          window.open(lastAppLink, '__blank');
+          this.window.open(lastAppLink, '__blank');
         } else if (response.speech === 'OPEN_LINK_NOK') {
           this.tts.say('Okay. Let me know if you need more help.');
           lastAppLink = null;

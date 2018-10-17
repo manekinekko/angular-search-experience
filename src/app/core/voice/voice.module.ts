@@ -1,14 +1,18 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DIALOGFLOW_TOKEN } from './inject-tokens';
-import { NlpService } from './nlp.service';
+import { DIALOGFLOW_TOKEN, NLP_SERVICE } from './inject-tokens';
+import { environment } from '../../../environments/environment';
 
 export interface DialogflowTokenInterface {
   accessToken: string;
 }
 
 @NgModule({
-  providers: [NlpService]
+  providers: [
+    {
+      provide: NLP_SERVICE,
+      useClass: environment.nlpService
+    }
+  ]
 })
 export class NlpModule {
   static forRoot(config: DialogflowTokenInterface): ModuleWithProviders {

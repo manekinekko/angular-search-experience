@@ -1,7 +1,6 @@
-import { NgModule, ModuleWithProviders, InjectionToken } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AlgoliaService } from './algolia.service';
-import { ALGOLIA_APPLICATION_ID, ALGOLIA_SEARCH_API_KEY, ALGOLIA_INDEX } from './injection-tokens';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { ALGOLIA_APPLICATION_ID, ALGOLIA_INDEX, ALGOLIA_SEARCH_API_KEY, ALGOLIA_SERVICE } from './injection-tokens';
 
 export interface AlgoliaConfiguration {
   applicationId: string;
@@ -10,7 +9,12 @@ export interface AlgoliaConfiguration {
 }
 
 @NgModule({
-  providers: [AlgoliaService]
+  providers: [
+    {
+      provide: ALGOLIA_SERVICE,
+      useClass: environment.algoliaService
+    }
+  ]
 })
 export class AlgoliaModule {
   static forRoot(config: AlgoliaConfiguration): ModuleWithProviders {

@@ -1,10 +1,9 @@
 import { debounceTime, map, filter } from 'rxjs/operators';
-import { Directive, AfterViewInit, HostListener, EventEmitter, Output, Inject } from '@angular/core';
+import { Directive, AfterViewInit, EventEmitter, Output, Inject, PLATFORM_ID } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { Observable } from 'rxjs/internal/Observable';
-import { merge } from 'rxjs/internal/observable/merge';
 import { DOCUMENT } from '@angular/platform-browser';
+import { WINDOW } from '../../core/window-ref.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appInfiniteScroll]'
@@ -16,18 +15,24 @@ export class InfiniteScrollDirective implements AfterViewInit {
   private userScrolledDown$;
   threshold = 300;
 
-  constructor(@Inject(DOCUMENT) private document) {
-    this.scrollEvent$ = fromEvent(window, 'scroll');
+  constructor(
+    @Inject(DOCUMENT) private document,
+    @Inject(WINDOW) private window,
+    @Inject(PLATFORM_ID) private platformId,
+  ) {
+    this.scrollEvent$ = fromEvent(this.window, 'scroll');
     this.userScrolledDown$ = this.scrollEvent$.pipe(
-      map(() => window.scrollY),
+      map(() => this.window.scrollY),
       debounceTime(200),
-      filter((current: number) => current >= document.body.clientHeight - window.innerHeight - this.threshold)
+      filter((current: number) => current >= document.body.clientHeight - this.window.innerHeight - this.threshold)
     );
   }
 
   ngAfterViewInit() {
-    this.userScrolledDown$.subscribe(event => {
-      this.scroll.emit();
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.userScrolledDown$.subscribe(event => {
+        this.scroll.emit();
+      });
+    }
   }
 }

@@ -1,12 +1,6 @@
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Injectable, NgZone } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { NlpService } from './nlp.service';
-
-interface Window {
-  webkitSpeechRecognition?: typeof SpeechRecognition;
-}
-declare var window:Window;
+import { WINDOW } from '../window-ref.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +13,15 @@ export class SpeechToTextService {
   onend$: Observable<{}>;
   onerror$: Observable<{}>;
   onstart$: Observable<{}>;
-  constructor() {}
+  constructor(
+    @Inject(WINDOW) private window
+  ) {}
 
   listen(forceStart = false) {
-    if (!window.webkitSpeechRecognition) {
+    if (!this.window.webkitSpeechRecognition) {
       console.error('Your device is not compatible with this easter egg. sorry!');
     } else {
-      this.recognition = new window.webkitSpeechRecognition();
+      this.recognition = new this.window.webkitSpeechRecognition();
       this.recognition.continuous = true;
       this.recognition.interimResults = true;
 

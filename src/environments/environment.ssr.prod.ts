@@ -1,10 +1,10 @@
-import { NlpService } from '../app/core/voice/nlp.service';
-import { AlgoliaService } from '../app/core/algolia/algolia.service';
+import { NlpMockService } from '../app/core/voice/nlp-mock.service';
+import { AlgoliaMockService } from '../app/core/algolia/algolia-mock.service';
 
 export const environment = {
   production: true,
-  nlpService: NlpService,
-  algoliaService: AlgoliaService,
+  nlpService: NlpMockService,
+  algoliaService: AlgoliaMockService,
   mock: {
     url: 'assets/data/data.json'
   },

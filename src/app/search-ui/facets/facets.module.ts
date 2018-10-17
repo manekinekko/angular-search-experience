@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@app/core/material/material.module';
+import { MaterialModule } from '../../core/material/material.module';
 import { CategoryComponent } from './category/category.component';
 
 @NgModule({

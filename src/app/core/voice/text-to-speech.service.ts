@@ -19,7 +19,7 @@ export class TextToSpeechService {
     const msg = new SpeechSynthesisUtterance();
 
     // In case we want to tweak the default voice:
-    // const voices = window.speechSynthesis.getVoices();
+    // const voices = this.window.speechSynthesis.getVoices();
     // msg.voice = voices[49]; // Note: some voices don't support altering params
     // msg['voiceURI'] = 'native';
     // msg.volume = 1; // 0 to 1

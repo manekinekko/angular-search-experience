@@ -1,11 +1,12 @@
 import { EastereggService } from './easteregg.service';
 import { environment } from './../../environments/environment';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '@app/core/material/material.module';
-import { AlgoliaModule } from '@app/core/algolia/algolia.module';
+import { MaterialModule } from '../core/material/material.module';
+import { AlgoliaModule } from '../core/algolia/algolia.module';
 import { TextToSpeechService } from './voice/text-to-speech.service';
 import { SpeechToTextService } from './voice/speech-to-text.service';
 import { NlpModule } from './voice/voice.module';
+import { WINDOW_PROVIDERS } from './window-ref.service';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { NlpModule } from './voice/voice.module';
       accessToken: environment.dialogflow.accessToken
     })
   ],
-  providers: [SpeechToTextService, TextToSpeechService, EastereggService],
+  providers: [WINDOW_PROVIDERS, SpeechToTextService, TextToSpeechService, EastereggService],
   exports: [MaterialModule, AlgoliaModule]
 })
 export class CoreModule {}

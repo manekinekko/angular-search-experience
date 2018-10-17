@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { CoreModule } from '@app/core/core.module';
+import { CoreModule } from '../core/core.module';
 import { SearchService } from './search.service';
 import { SearchComponent } from './search/search.component';
 import { SearchInputComponent } from './search-input/search-input.component';

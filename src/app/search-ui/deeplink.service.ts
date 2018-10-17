@@ -1,8 +1,9 @@
 import { FormGroup } from '@angular/forms';
 import { QueryParams } from './deeplink.service';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { AlgoliaService } from '@app/core/algolia/algolia.service';
+import { ALGOLIA_SERVICE } from '../core/algolia/injection-tokens';
+import { IAlgoliaService } from '../core/algolia/algolia.interface';
 
 export interface QueryParams {
   q: string;
@@ -12,7 +13,10 @@ export interface QueryParams {
   providedIn: 'root'
 })
 export class DeeplinkService {
-  constructor(private router: Router, private route: ActivatedRoute, private search: AlgoliaService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    @Inject(ALGOLIA_SERVICE) private search: IAlgoliaService) {}
 
   /**
    * Register a given FormGroup instance with the current "q" queryParams Observbale. Every time the

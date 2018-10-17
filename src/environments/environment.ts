@@ -5,6 +5,8 @@
 
 export const environment = {
   production: false,
+  nlpService: NlpService,
+  algoliaService: AlgoliaService,
   mock: {
     url: 'assets/data/data.json'
   },
@@ -25,3 +27,6 @@ export const environment = {
  * because it will have performance impact when throw error
  */
 import 'zone.js/dist/zone-error'; // Included with Angular CLI.
+import { NlpService } from '../app/core/voice/nlp.service';
+import { AlgoliaService } from '../app/core/algolia/algolia.service';
+

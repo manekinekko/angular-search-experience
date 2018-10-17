@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { EastereggService } from '@app/core/easteregg.service';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { EastereggService } from './core/easteregg.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,20 @@ import { EastereggService } from '@app/core/easteregg.service';
 })
 export class AppComponent {
   hits = 0;
-  constructor(private easter: EastereggService) {}
+  constructor(
+    private easter: EastereggService,
+    @Inject(PLATFORM_ID) private platformId
+  ) { }
 
   hitMe() {
-    this.hits++;
-    if (this.hits > 5) {
-      this.hits = 0;
-      this.easter.surprise();
-    } else {
-      console.log('One more time...');
+    if (isPlatformBrowser(this.platformId)) {
+      this.hits++;
+      if (this.hits > 5) {
+        this.hits = 0;
+        this.easter.surprise();
+      } else {
+        console.log('One more time...');
+      }
     }
   }
 }

@@ -1,10 +1,9 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
-import { Observable, PartialObserver, Subject } from 'rxjs';
-import { filter, switchMap, share, switchMapTo } from 'rxjs/operators';
+import { Component, OnInit, AfterContentInit, Inject } from '@angular/core';
 import { MatSnackBar, MatButtonToggleChange } from '@angular/material';
-import { AlgoliaService } from '@app/core/algolia/algolia.service';
 import { Category } from '../facets/category/category.component';
-import { SearchService, Application } from './../search.service';
+import { Application } from './../search.service';
+import { ALGOLIA_SERVICE } from '../../core/algolia/injection-tokens';
+import { IAlgoliaService } from '../../core/algolia/algolia.interface';
 
 @Component({
   selector: 'app-search',
@@ -52,7 +51,10 @@ export class SearchComponent implements OnInit {
    */
   lastResultCount = Infinity;
 
-  constructor(private search: AlgoliaService, private snackBar: MatSnackBar) {
+  constructor(
+    @Inject(ALGOLIA_SERVICE) private search: IAlgoliaService,
+    private snackBar: MatSnackBar
+  ) {
     this.applications = [];
     this.updateSearchCategories([]);
     this.search.setQueryParameter({

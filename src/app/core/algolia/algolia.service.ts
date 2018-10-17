@@ -1,14 +1,9 @@
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Injectable, Inject } from '@angular/core';
 import algoliasearchHelper from 'algoliasearch-helper';
 import { ALGOLIA_APPLICATION_ID, ALGOLIA_SEARCH_API_KEY, ALGOLIA_INDEX } from './injection-tokens';
-
-export interface SearchState {
-  search$: Observable<any>;
-  result$: Observable<any>;
-  change$: Observable<any>;
-  error$: Observable<any>;
-}
+import { WINDOW } from '../window-ref.service';
+import { IAlgoliaService, SearchState } from './algolia.interface';
 
 /**
  * The Algolia search strategy. This implementtion uses three indices based on the sort options:
@@ -16,10 +11,8 @@ export interface SearchState {
  * - `applications_by_rating_desc`: used for retreiving entries sorted by rating (in descending order), ie. Popular apps first.
  * - `applications` (default): used for retreiving entries sorted by the default Algolia ranking algorithm, ie. Relevance.
  */
-@Injectable({
-  providedIn: 'root'
-})
-export class AlgoliaService {
+@Injectable()
+export class AlgoliaService implements IAlgoliaService {
   indices = {
     applications: algoliasearchHelper,
     applications_by_rating_desc: algoliasearchHelper,
@@ -35,7 +28,8 @@ export class AlgoliaService {
   constructor(
     @Inject(ALGOLIA_APPLICATION_ID) private applicationID,
     @Inject(ALGOLIA_SEARCH_API_KEY) private searchApiKey,
-    @Inject(ALGOLIA_INDEX) private indexName
+    @Inject(ALGOLIA_INDEX) private indexName,
+    @Inject(WINDOW) private window,
   ) {
     this.client = window['algoliasearch'](applicationID, searchApiKey);
 

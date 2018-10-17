@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -11,7 +11,5 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"]
   },
-  "angularCompilerOptions": {
-    "enableIvy": false
-  }
+  "include": ["server.ts"]
 }
