@@ -1,10 +1,8 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
-import { Observable, PartialObserver, Subject } from 'rxjs';
-import { filter, switchMap, share, switchMapTo } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatButtonToggleChange } from '@angular/material';
 import { AlgoliaService } from '@app/core/algolia/algolia.service';
 import { Category } from '../facets/category/category.component';
-import { SearchService, Application } from './../search.service';
+import { Application } from './../search.service';
 
 @Component({
   selector: 'app-search',

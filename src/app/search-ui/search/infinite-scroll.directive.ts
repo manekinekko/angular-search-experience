@@ -1,9 +1,6 @@
 import { debounceTime, map, filter } from 'rxjs/operators';
 import { Directive, AfterViewInit, HostListener, EventEmitter, Output, Inject } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { Observable } from 'rxjs/internal/Observable';
-import { merge } from 'rxjs/internal/observable/merge';
 import { DOCUMENT } from '@angular/platform-browser';
 
 @Directive({

@@ -1,5 +1,5 @@
 import { ApiAiClient } from 'api-ai-javascript/es6/ApiAiClient';
-import { Injectable, Inject, InjectionToken } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { DIALOGFLOW_TOKEN } from './inject-tokens';
 
 @Injectable({

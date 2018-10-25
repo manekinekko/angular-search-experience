@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { take } from 'rxjs/internal/operators/take';
 
 export interface Category {
   name: string;

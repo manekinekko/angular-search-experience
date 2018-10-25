@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DIALOGFLOW_TOKEN } from './inject-tokens';
 import { NlpService } from './nlp.service';
 

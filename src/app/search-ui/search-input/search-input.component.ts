@@ -1,8 +1,7 @@
 import { DeeplinkService } from './../deeplink.service';
 import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef, AfterContentInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { filter, distinctUntilChanged, debounceTime, tap, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-input',

@@ -1,7 +1,5 @@
 import { Observable } from 'rxjs';
 import { Injectable, NgZone } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { NlpService } from './nlp.service';
 
 interface Window {
   webkitSpeechRecognition?: typeof SpeechRecognition;

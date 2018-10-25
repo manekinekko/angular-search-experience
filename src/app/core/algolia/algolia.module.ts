@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders, InjectionToken } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AlgoliaService } from './algolia.service';
 import { ALGOLIA_APPLICATION_ID, ALGOLIA_SEARCH_API_KEY, ALGOLIA_INDEX } from './injection-tokens';
 
