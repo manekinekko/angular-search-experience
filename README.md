@@ -29,7 +29,7 @@ Once installed, open up a terminal shell and clone this repository using the fol
 
 ## Installing the dependencies
 
-You will need `npm install` to install this project's dependencies. Next, Using your terminal, you will need to change directory to the folder where you previously cloned this project; by default (if you copied the commad line from above) this would be `angular-search-experience`:
+You will need `npm install` to install this project's dependencies. Next, Using your terminal, you will need to change directory to the folder where you previously cloned this project; by default (if you copied the command line from above) this would be `angular-search-experience`:
 
 ```
 > cd angular-search-experience
@@ -48,13 +48,13 @@ Before you start the server, you will need to add a couple of environement varia
 
 ### Option 1 (recommended): Express
 
-In order to try out the server on your localm machine, run the following command: `npm run start:backend`
+In order to try out the server on your local machine, run the following command: `npm run start:backend`
 
 ### Option 2 (advanced):the backend (cloud function)
 
-> This option requires you to be logged in to your firebase account and have access to this projet (on firebase). Only caretakers have access to the firebase project!
+> This option requires you to be logged in to your firebase account and have access to this project (on firebase). Only caretakers have access to the firebase project!
  
-Another version of the backed is relying on a Serverless architecture implemented using Cloud Functions for Firebase. 
+Another version of the backend is relying on a Serverless architecture implemented using Cloud Functions for Firebase. 
 
 This project comes with `firebase-tools` as a local dependency. This tool is a set of Firebase Command Line Interface (CLI) tools that can generate, run and deploy a Firebase project. Please note that this dependency is usually installed globally.
 
@@ -69,8 +69,8 @@ Use `NVM` to install the required Node.js version and then use it (only inside t
 
 Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the `search` Cloud Function locally. For that, run `npm run start:backend:firebase`. This command will do two things:
 
-1.  change directory to the `/functions` folder (found at the root of the project). This folder contains all the backend code.
-1.  Then it will serve the `search` Cloud Function locally on `http://localhost:5000/angular-search-experience/us-central1/search`
+1.  Change directory to the `/functions` folder (found at the root of the project). This folder contains all the backend code.
+1.  Serve the `search` Cloud Function locally on `http://localhost:5000/angular-search-experience/us-central1/search`
 
 > Important: Please note that the `search` function implements only the `POST` and `DELETE` HTTP methods, allowing you to add and delete an entity, so you will need an HTTP client, such as `cURL` or `Postman`, to be able to request the Cloud Function.
 
