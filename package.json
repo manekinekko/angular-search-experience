@@ -6,6 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start:backend": "cd functions && node server.js",
+    "install:backend": "cd functions && npm install",
     "start:backend:firebase": "cd functions && firebase serve --only functions",
     "build": "ng build",
     "build:prod": "ng build --prod",

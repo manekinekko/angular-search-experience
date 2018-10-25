@@ -40,11 +40,12 @@ You will need `npm install` to install this project's dependencies. Next, Using 
 
 We've decided to secure the Cloud Function (this is a good practice). So, in order to request the `search` API you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. See an example of cURL command below.
 
-Before you start the server, you will need to add a couple of environement variables inside a .env file, in the `/functions` folder. You can use this [env template file](https://github.com/sfeir-open-source/angular-search-experience/blob/master/functions/env) as an example, and set:
+Before you start the server, you will need to add a couple of environement variables inside a .env file, in the `/functions` folder. You can use this [env template file](https://github.com/sfeir-open-source/angular-search-experience/blob/master/functions/env) as an example (rename it to .env, which is gitignored), and set:
 
 - algolia_applicationid=`YOUR_ALGOLIA_APPLICATION_ID`
 - algolia_apikey=`YOUR_ALGOLIA_API_KEY`
 
+You can find your application id and your and api key at https://www.algolia.com/apps in the API Keys section. You need to create an account to get your api key.
 
 ### Option 1 (recommended): Express
 
