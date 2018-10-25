@@ -9,10 +9,7 @@ import { Observable } from 'rxjs';
 export interface Application {
   category: string;
 
-  /**
-   * From 0 to 5.
-   */
-  rating: number;
+  rating: 0 | 1 | 2 | 3 | 4 | 5;
   name: string;
   image: string;
   link: string;
