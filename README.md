@@ -29,11 +29,11 @@ Once installed, open up a terminal shell and clone this repository using the fol
 
 ## Installing the dependencies
 
-You will need `yarn` to install this project's dependencies. If you don't have `yarn` installed, here is [the official documentation](https://yarnpkg.com/lang/en/docs/install/#mac-stable). Next, Using your terminal, you will need to change directory to the folder where you previously cloned this project; by default (if you copied the commad line from above) this would be `angular-search-experience`:
+You will need `npm install` to install this project's dependencies. Next, Using your terminal, you will need to change directory to the folder where you previously cloned this project; by default (if you copied the commad line from above) this would be `angular-search-experience`:
 
 ```
 > cd angular-search-experience
-> yarn
+> npm install
 ```
 
 ## Developement server
@@ -48,7 +48,7 @@ Before you start the server, you will need to add a couple of environement varia
 
 ### Option 1 (recommended): Express
 
-In order to try out the server on your localm machine, run the following command: `yarn start:backend`
+In order to try out the server on your localm machine, run the following command: `npm run start:backend`
 
 ### Option 2 (advanced):the backend (cloud function)
 
@@ -67,7 +67,7 @@ Use `NVM` to install the required Node.js version and then use it (only inside t
 > nvm use
 ```
 
-Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the `search` Cloud Function locally. For that, run `yarn start:backend:firebase`. This command will do two things:
+Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the `search` Cloud Function locally. For that, run `npm run start:backend:firebase`. This command will do two things:
 
 1.  change directory to the `/functions` folder (found at the root of the project). This folder contains all the backend code.
 1.  Then it will serve the `search` Cloud Function locally on `http://localhost:5000/angular-search-experience/us-central1/search`
@@ -77,26 +77,26 @@ Now that you are using Node.js `v6.11.5`, you are ready to run (ie. emulate) the
 
 ### the front-end application
 
-At the root of the project, run `yarn start` to start the front-end dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+At the root of the project, run `npm start` to start the front-end dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 The front-end application was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
 ## Build
 
-Run `yarn build` to build the project. The build artifacts will be stored under the `dist/angular-search-experience/` directory. Use the `yarn build:prod` script for a production build.
+Run `npm run build` to build the project. The build artifacts will be stored under the `dist/angular-search-experience/` directory. Use the `npm run build:prod` script for a production build.
 
 ## Deploy
 
 We use Firebase hosting to publish the front-end application. Before deploying a new version, we need to build a production package using the following command:
 
 ```
-> yarn build
+> npm run build
 ```
 
 Then, we can deploy the new build to firebase:
 
 ```
-> yarn deploy
+> npm run deploy
 ```
 
 > IMPORTANT: deploying to firebase requires access privilege (to the firebase project).
@@ -219,5 +219,5 @@ info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this 
 
 Workaround:
 - Run `nvm use 8.0` inside the `/functions` folder.
-- Run `yarn install`.
-- Run `cd ..` then `yarn start:backend`.
+- Run `npm install`.
+- Run `cd ..` then `npm run start:backend`.
