@@ -1,0 +1,4 @@
+<mat-chip-list [multiple]="true" selectable="true">
+  <mat-chip *ngFor="let category of categories" (click)="toggleSelected(category)" [selected]="category.isRefined" [selectable]="true"
+    (selectionChange)="onSelectionChanged(category)" [value]="category.name">{{ category.name }} ({{ category.count }})</mat-chip>
+</mat-chip-list>

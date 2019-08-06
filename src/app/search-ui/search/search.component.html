@@ -1,0 +1,42 @@
+<mat-card class="card" appInfiniteScroll (scroll)="onScroll()">
+  <mat-card-header>
+    <a class="card_algolia-credits" href="https://www.algolia.com/product" target="__blank" aria-label="Powered by Algolia">
+      <p>Powered by</p>
+    </a>
+    <app-search-input class="card_search-input" (clear)="onSearchInputClear()" (query)="onSearchInputChange($event)"></app-search-input>
+
+  </mat-card-header>
+  <mat-card-content class="card_content" [class.no-result]="applications.length === 0">
+
+    <div class="card_sorting-options">
+
+      <mat-button-toggle-group (change)="onSortOptionChange($event)" #group="matButtonToggleGroup" *ngIf="applications.length > 0">
+        <mat-button-toggle [checked]="sortOption" value="relevance_desc">
+          Most Relevant
+        </mat-button-toggle>
+        <mat-button-toggle [checked]="sortOption" value="price_asc">
+          Lowest Price
+        </mat-button-toggle>
+        <mat-button-toggle [checked]="sortOption" value="rating_desc">
+          Most Popular
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <mat-expansion-panel *ngIf="searchCategories.length > 0">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Categories
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <app-category (selectionChanged)="filterByCategory($event)" [categories]="searchCategories"></app-category>
+
+    </mat-expansion-panel>
+
+    <app-search-result *ngIf="applications.length > 0" [entries]="applications"></app-search-result>
+
+  </mat-card-content>
+</mat-card>
+
+<router-outlet></router-outlet>

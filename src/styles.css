@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+app-root {
+  margin-bottom: 30px;
+  display: block;
+  z-index: 1;
+  position: relative;
+}
+
+span[appRating] i.material-icons {
+  font-size: 18px;
+}
+
+em {
+  background-color: #f95583;
+  padding: 1px 1px;
+  border-radius: 5px;
+  color: white;
+  font-style: normal;
+}

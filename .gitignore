@@ -4,15 +4,10 @@
 /dist
 /tmp
 /out-tsc
-# Only exists if Bazel was run
-/bazel-out
 
 # dependencies
 /node_modules
-
-# profiling files
-chrome-profiler-events*.json
-speed-measure-plugin*.json
+/functions/node_modules
 
 # IDEs and editors
 /.idea
@@ -29,7 +24,6 @@ speed-measure-plugin*.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
 
 # misc
 /.sass-cache
@@ -40,6 +34,9 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/functions/cloud-functions-emulator.log
+/functions/firebase-debug.log
+/functions/.env
 
 # System Files
 .DS_Store

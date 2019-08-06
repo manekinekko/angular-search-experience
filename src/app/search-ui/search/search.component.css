@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+.mat-card-header {
+  display: flex;
+  align-items: center;
+  height: 130px;
+  box-sizing: border-box;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.card {
+  padding: 0;
+  margin: -130px auto 0;
+  width: 90vw;
+  position: relative;
+}
+
+.card_search-input {
+  width: 100%;
+}
+
+.card_content {
+  min-height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.card_content.no-result {
+  background-image: url('https://cdn.dribbble.com/users/37530/screenshots/2485318/no-results.png');
+}
+
+.card_algolia-credits {
+  display: block;
+  text-decoration: none;
+  color: gray;
+  padding: 4px 80px;
+  margin: 0 20px 0;
+  text-align: right;
+  background-image: url(/assets/images/algolia-logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right center;
+  font-size: 0.7em;
+  position: absolute;
+  margin-top: 30px;
+  right: 0;
+}
+
+.card_sorting-options {
+  text-align: right;
+  padding: 10px;
+}

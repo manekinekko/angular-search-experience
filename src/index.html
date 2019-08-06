@@ -1,14 +1,131 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>AngularSearchExperience8</title>
+  <title>Search The App Store (by Wassim Chegham)</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="assets/manifest.json">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'roboto';
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      min-height: 100%;
+    }
+
+    .main-header--gradient-background {
+      background: #3532a8;
+      background: linear-gradient(45deg, #8C52E1 50%, #F95583 100%);
+    }
+
+    .main-header {
+      padding: 30px 50px;
+      color: white;
+      text-align: center;
+      height: 218px;
+    }
+
+    .main-hearder_title {
+      background-image: url(assets/images/searchapp-store-title.png);
+      display: block;
+      width: 100%;
+      height: 40px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .main-header_logo {
+      background-image: url(assets/images/searchapp-store-logo.png);
+      background-size: 180px;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 100%;
+      height: 125px;
+      top: -16px;
+      position: relative;
+      background-position: center top;
+      text-transform: uppercase;
+      padding-top: 80px;
+      font-weight: 500;
+    }
+
+    .loader {
+      display: block;
+      margin: -100px auto;
+    }
+
+    footer {
+      background: #69C7FA;
+      background: linear-gradient(45deg, #928EE8 50%, #69C7FA 100%);
+      padding: 14px;
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+
 </head>
+
 <body>
-  <app-root></app-root>
+  <div class="main-header main-header--gradient-background">
+    <h1 class="mat-display-1 main-header_logo">
+      <span class="main-hearder_title"></span>
+    </h1>
+  </div>
+  <app-root>
+    <img class="loader" src="assets/images/loader.svg" width="100" />
+  </app-root>
+  <footer>
+    <span>Built with ❤ by Wassim Chegham (
+      <a href="https://twitter.com/manekinekko">@manekinekko</a>) • The search experience is powered by
+      <a href="https://algolia.com">Algolia</a>.
+    </span>
+  </footer>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117670425-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-117670425-1');
+  </script>
+
 </body>
+
 </html>
+
+<!-- 
+  Powered by 
+lKWMMMMMMMMMMMMMMMMMMMMMMMNO;                       .cdd'                                    .ldl.    .;'
+WMMMMMMMMMMMNKKKXWMMMMMMMMMM0'                      ,KMN:                                    lWM0'   ,0WNo
+MMMMMMMMMMMK:',',kMMMMMMMMMMK,                      ,KMN:                                    lWM0'   .oOx,
+MMMMMNkcdXNkc;:::dKWMMMMMMMMK,          .',,,'..    ,KMN:         .',,,'..       .,;;,.      lWM0'    .,,.    .',;;,'.
+MMMMMXc;lc'...''...:kNMMMMMMK,         :KNWWWWX0o.  ,KMN:      ,d0XWWNWNXKl   .ckXWWWWN0o'   lWM0'   .kWNl   ,0NWWWWNKx'
+MMMMMMXd. ,xKNOc:c:. :KMMMMMK,         .::;,;l0MWx. ,KMN:    .oNMXd:,,:0MMx. 'OWWOc,,:xNMK:  lWM0'   '0MWl   .;:,,,:OWM0
+MMMMMMx. lNMMMx. .xk' :NMMMMK,           .....lNMK, ,KMN:    :NMNc    .xMMx..kMMk.     oWM0' lWM0'   '0MWl     ...'.:KMW
+MMMMMNc '0MMMM0oxKWWl .OMMMMK,        .cx0KXKKXWMX; ,KMN:   .oMM0'    .xMMx.,KMWl      ;XMNc lWM0'   '0MWl  .:x0XXKKXWMW
+MMMMMWl .OMMMMMMMMMNc '0MMMMK,       .xWW0c,''oNMX; ,KMWc    oWMK,    .xMMx..OMMd.     cNMX; lWM0'   '0MWl  oWMKl,''cKMW
+MMMMMMK, 'kWMMMMMWKc..dWMMMMK,       .OMWx.   ;XMX; .OMWk'   ,KMWk,. .,OMMx. :XMNo.. .cKMWd. :NMNo.  '0MWl .xMMO,.  ,0MW
+MMMMMMMKc..,lxkxo:. ,kWMMMMMK,        cKWWXOOOKWMX;  ;0WWXc   ,kNMN000XWMMx.  ,kNWX00XWW0c.  .lXMWO' '0MWl  ,OWMN00OKWMW
+MMMMMMMMW0o:'....,lkNMMMMMMMK,         .:ldddddol:.   .;lo;     'clooll0MMd     ':lddoc,.      .:ol. .cdo'   .,codddool:
+MMMMMMMMMMMMNXKXNWMMMMMMMMMMK,                                       .cXMNc
+0MMMMMMMMMMMMMMMMMMMMMMMMMMWd.                                .oOOkkOKWWKc.
+,kNWWWWWWWWWWWWWWWWWWWWWWWXo.                                 .xXNWWWX0o'
+ -->

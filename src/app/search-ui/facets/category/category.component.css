@@ -1,0 +1,8 @@
+:host {
+  display: inline-block;
+}
+
+.mat-chip-list {
+  display: inline-block;
+  margin: 5px;
+}
