@@ -24,7 +24,7 @@ In order to download (clone) this project on your machine, you need to have `git
 Once installed, open up a terminal shell and clone this repository using the following command:
 
 ```
-> git clone https://github.com/sfeir-open-source/angular-search-experience.git
+> git clone https://github.com/manekinekko/angular-search-experience.git
 ```
 
 ## Installing the dependencies
@@ -40,7 +40,7 @@ You will need `npm install` to install this project's dependencies. Next, Using 
 
 We've decided to secure the Cloud Function (this is a good practice). So, in order to request the `search` API you'll have to append an `Authorization` header to your requests. Here is the required header `Authorization: SearchToken this-is-a-fake-token`. See an example of cURL command below.
 
-Before you start the server, you will need to add a couple of environement variables inside a .env file, in the `/functions` folder. You can use this [env template file](https://github.com/sfeir-open-source/angular-search-experience/blob/master/functions/env) as an example (rename it to .env, which is gitignored), and set:
+Before you start the server, you will need to add a couple of environement variables inside a .env file, in the `/functions` folder. You can use this [env template file](https://github.com/manekinekko/angular-search-experience/blob/master/functions/env) as an example (rename it to .env, which is gitignored), and set:
 
 - algolia_applicationid=`YOUR_ALGOLIA_APPLICATION_ID`
 - algolia_apikey=`YOUR_ALGOLIA_API_KEY`
@@ -108,8 +108,8 @@ Then, we can deploy the new build to firebase:
 ## Backend
 
 The production endpoints (cloud function) are available on: 
-1. POST: https://searchapp.store/api/1/apps
-2. DELETE: https://searchapp.store/api/1/apps/:id
+1. POST: /api/1/apps
+2. DELETE: /api/1/apps/:id
 
 In order to request the production Cloud Function, you can use this cURL commands:
 
@@ -117,7 +117,7 @@ In order to request the production Cloud Function, you can use this cURL command
 
 
 ```
-> curl -H "Authorization: SearchToken this-is-a-fake-token" -H "Content-Type: application/json" -X POST -d '{}' https://searchapp.store/api/1/apps
+> curl -H "Authorization: SearchToken this-is-a-fake-token" -H "Content-Type: application/json" -X POST -d '{}' https://example.com/api/1/apps
 
 {"createdAt":"2018-04-19T13:17:10.343Z","taskID":29343382,"objectID":"10788302"}
 ```
@@ -127,14 +127,12 @@ In order to request the production Cloud Function, you can use this cURL command
 ### Deleting an entry from Algolia's index
 
 ```
-> curl -H "Authorization: SearchToken this-is-a-fake-token" -X DELETE https://searchapp.store/api/1/apps/10788302
+> curl -H "Authorization: SearchToken this-is-a-fake-token" -X DELETE https://example.com/api/1/apps/10788302
 
 {"deletedAt":"2018-04-19T13:30:42.190Z","taskID":29353102,"objectID":"10788302"}
 ```
 
 ## Front-end
-
-The production app is available on: https://searchapp.store. See the available features below.
 
 # Architecture and available features (UI)
 
@@ -151,7 +149,7 @@ The production app is available on: https://searchapp.store. See the available f
 6. Directive: `[appRating]`
 7. Pipe: `freePriceLabel`
 
-Read more about the API documentation here: https://sfeir-open-source.github.io/angular-search-experience/index.html
+Read more about the API documentation here: https://manekinekko.github.io/angular-search-experience/index.html
 
 
 ## Features
