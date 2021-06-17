@@ -4,8 +4,8 @@ export const environment = {
     url: 'assets/data/data.json'
   },
   algolia: {
-    applicationId: 'UKIVLRH85G',
-    searchApiKey: '208b30b19b8def35abe4eba171bcb5a2',
+    applicationId: 'D4OMMYXD6P',
+    searchApiKey: '46aabcab63cf1c68fc24e16b0cac966a',
     indexName: 'applications'
   },
   dialogflow: {
